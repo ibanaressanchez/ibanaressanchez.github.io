@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignacio Banares-Sanchez - LSE Economics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        /* Left Column */
+        .sidebar {
+            position: sticky;
+            top: 40px;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .title {
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .affiliation {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .address {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        /* Right Column */
+        .main-content {
+            padding-top: 10px;
+        }
+        
+        .intro {
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        
+        .intro a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .intro a:hover {
+            text-decoration: underline;
+        }
+        
+        h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            font-weight: 600;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        
+        h2:first-child {
+            margin-top: 0;
+        }
+        
+        .paper {
+            margin-bottom: 35px;
+        }
+        
+        .paper-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .job-market {
+            color: #0066cc;
+            font-style: italic;
+        }
+        
+        .coauthors {
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        
+        .paper-info {
+            color: #666;
+            margin-bottom: 3px;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+        
+        .paper-links {
+            margin-top: 8px;
+        }
+        
+        .paper-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 15px;
+        }
+        
+        .paper-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .abstract {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 3px solid #0066cc;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .abstract.show {
+            display: block;
+        }
+        
+        /* Teaching Section */
+        .teaching-section {
+            margin-top: 40px;
+        }
+        
+        .teaching-current {
+            margin-bottom: 20px;
+        }
+        
+        .teaching-current h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .teaching-list {
+            list-style: none;
+            color: #666;
+            font-size: 15px;
+        }
+        
+        .teaching-list li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .teaching-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .sidebar {
+                position: static;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin: 0 auto 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Column -->
+        <div class="sidebar">
+            <!-- Add your photo here -->
+            <img src="your-photo.jpg" alt="Ignacio Banares-Sanchez" class="profile-img">
+            
+            <h1>Ignacio Banares-Sanchez</h1>
+            <div class="title">PhD Candidate in Economics</div>
+            <div class="affiliation">London School of Economics</div>
+            
+            <div class="contact-info">
+                <a href="mailto:i.banares-sanchez@lse.ac.uk">i.banares-sanchez@lse.ac.uk</a>
+            </div>
+            
+            <div class="address">
+                32 Lincoln's Inn Fields<br>
+                London WC2A 3PH, UK
+            </div>
+        </div>
+        
+        <!-- Right Column -->
+        <div class="main-content">
+            <div class="intro">
+                I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE), where I am affiliated with STICERD's Economics of Environment and Energy (EEE) Programme. I work on environmental and development questions, with a focus on urban and regional economics. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources.
+                <br><br>
+                <strong>I will be on the 2025-26 academic job market.</strong> You can find my CV <a href="https://ibanaressanchez.github.io/cv.pdf">here</a>.
+            </div>
+            
+            <h2>Working Papers</h2>
+            
+            <div class="paper">
+                <div class="paper-title">
+                    Trading Trash on Tricycles
+                    <span class="job-market">(Job Market Paper)</span>
+                </div>
+                <div class="coauthors">(with Yoshiki Wiskamp)</div>
+                <div class="paper-info">
+                    <strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop; (scheduled) Seventeenth Annual Conference on Urban and Regional Economics (CURE)
+                </div>
+                <div class="paper-info">
+                    <strong>Funding:</strong> IGC, STICERD
+                </div>
+                <div class="paper-links">
+                    <a href="https://ibanaressanchez.github.io/jmp.pdf">[paper]</a>
+                    <a href="#">[policy brief]</a>
+                    <a href="#" class="abstract-toggle" data-target="abstract1">▸ Abstract</a>
+                </div>
+                <div class="abstract" id="abstract1">
+                    Abstract content will go here when you provide it.
+                </div>
+            </div>
+            
+            <div class="paper">
+                <div class="paper-title">
+                    Ray of Hope? China and the Rise of Solar Energy
+                    <span style="color: #666; font-style: italic; font-weight: normal;">(Updated draft coming soon)</span>
+                </div>
+                <div class="coauthors">(with Robin Burgess, David Laszlo, Pol Simpson, John Van Reenen, and Yifan Wang)</div>
+                <div class="paper-info">
+                    <strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (scheduled) ASSA Annual Meeting in Philadelphia
+                </div>
+                <div class="paper-links">
+                    <a href="#" class="abstract-toggle" data-target="abstract2">▸ Abstract</a>
+                </div>
+                <div class="abstract" id="abstract2">
+                    Abstract content will go here when you provide it.
+                </div>
+            </div>
+            
+            <h2>Work in Progress</h2>
+            
+            <div class="paper">
+                <div class="paper-title">Channeling Density: Sewerage Investments in 19th-Century Paris</div>
+                <div class="coauthors">(with Yoshiki Wiskamp)</div>
+                <div class="paper-links">
+                    <a href="#" class="project-desc">▸ Project description</a>
+                </div>
+            </div>
+            
+            <div class="paper">
+                <div class="paper-title">The Miracle on the Han: Urbanisation, Industrial Policy, and Rural Development</div>
+                <div class="coauthors">(with Oriana Bandiera, Robin Burgess, Tim Dobermann, Jay Euijung Lee, Jeongkyun Won, and Hyunjoo Yang)</div>
+                <div class="paper-info">
+                    <strong>Funding:</strong> STEG, ESRC
+                </div>
+            </div>
+            
+            <div class="paper">
+                <div class="paper-title">Electricity Supply and Firm Agglomeration in Ghana</div>
+                <div class="coauthors">(with Tim Dobermann and Niclas Moneke)</div>
+                <div class="paper-info">
+                    <strong>Funding:</strong> IGC
+                </div>
+                <div class="paper-links">
+                    <a href="#" class="project-desc">▸ Project description</a>
+                </div>
+            </div>
+            
+            <div class="paper">
+                <div class="paper-title">Water, Sanitation, and Climate Resilience in the Tropics</div>
+                <div class="coauthors">(with Juliana Helo)</div>
+                <div class="paper-info">
+                    <strong>Funding:</strong> IGC
+                </div>
+                <div class="paper-links">
+                    <a href="#" class="project-desc">▸ Project description</a>
+                </div>
+            </div>
+            
+            <h2>Policy Work</h2>
+            
+            <div class="paper">
+                <div class="paper-title">Water and Sanitation Provision in Developing Cities</div>
+                <div class="coauthors">(with Mikey Blake, Victoria Delbridge, Ed Glaeser, and Yoshiki Wiskamp)</div>
+                <div class="paper-info">
+                    IGC Policy Paper
+                </div>
+            </div>
+            
+            <h2>Teaching</h2>
+            
+            <div class="teaching-section">
+                <div class="teaching-current">
+                    <h3>Current Teaching</h3>
+                    <ul class="teaching-list">
+                        <li>Development Economics for MPA students (graduate)</li>
+                        <li>Environmental Economics (undergraduate)</li>
+                        <li>Mathematics and Statistics for MPP students (graduate)</li>
+                        <li>IZA/FCDO G²LM|LIC ONLINE Development Economics Course</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Abstract toggle functionality
+        document.querySelectorAll('.abstract-toggle').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const abstract = document.getElementById(targetId);
+                abstract.classList.toggle('show');
+                
+                // Change arrow direction
+                if (abstract.classList.contains('show')) {
+                    this.textContent = '▾ Abstract';
+                } else {
+                    this.textContent = '▸ Abstract';
+                }
+            });
+        });
+        
+        // Project description links
+        document.querySelectorAll('.project-desc').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // You can implement project description functionality here
+                // For now, just a placeholder
+                alert('Project description functionality to be implemented');
+            });
+        });
+    </script>
+</body>
+</html>
