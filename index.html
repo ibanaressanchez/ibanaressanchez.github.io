@@ -510,7 +510,7 @@
                         <path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/>
                     </svg>
                 </a>
-                <a href="https://bsky.app/profile/yourusername.bsky.social" title="Bluesky" target="_blank" style="color: var(--text-secondary); transition: opacity 0.2s ease;">
+                <a href="https://bsky.app/profile/ibanares-sanchez.bsky.social" title="Bluesky" target="_blank" style="color: var(--text-secondary); transition: opacity 0.2s ease;">
                     <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: currentColor;">
                         <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/>
                     </svg>
@@ -520,7 +520,7 @@
         
         <!-- Right Column -->
         <div class="main-content">
-            <div class="intro">
+            <div class="intro" id="intro-section">
                 I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE), where I am affiliated with STICERD's Economics of Environment and Energy (EEE) Programme. I work on environmental and development questions, with a focus on urban and regional economics. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources.
                 <br><br>
                 <strong>I will be on the 2025-26 academic job market.</strong> You can find my CV <a href="https://ibanaressanchez.github.io/Banares_Sanchez_CV.pdf">here</a>.
@@ -651,13 +651,13 @@
             <!-- Footer removed - all social links now in sidebar -->
         </div>
         
-        <!-- Section indicator dots -->
+        <!-- Section indicator dots - now with 5 dots including intro -->
         <div class="section-dots">
-            <div class="dot active" data-section="intro"></div>
-            <div class="dot" data-section="working-papers"></div>
-            <div class="dot" data-section="work-progress"></div>
-            <div class="dot" data-section="policy"></div>
-            <div class="dot" data-section="teaching"></div>
+            <div class="dot active" data-section="about" title="About"></div>
+            <div class="dot" data-section="working-papers" title="Working Papers"></div>
+            <div class="dot" data-section="work-progress" title="Work in Progress"></div>
+            <div class="dot" data-section="policy" title="Policy Work"></div>
+            <div class="dot" data-section="teaching" title="Teaching"></div>
         </div>
     </div>
     
@@ -698,27 +698,71 @@
         
         // Section indicator dots functionality
         function updateDots() {
+            const intro = document.getElementById('intro-section');
             const sections = document.querySelectorAll('h2');
             const dots = document.querySelectorAll('.dot');
-            const scrollPosition = window.scrollY + 100;
+            const scrollPosition = window.scrollY + 200;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.body.scrollHeight;
             
-            let currentSection = 0;
-            sections.forEach((section, index) => {
-                if (scrollPosition >= section.offsetTop) {
-                    currentSection = index;
+            // Check if we're near the bottom of the page
+            const nearBottom = (window.scrollY + windowHeight) >= (documentHeight - 100);
+            
+            if (nearBottom) {
+                // If near bottom, highlight the last dot (Teaching)
+                dots.forEach(d => d.classList.remove('active'));
+                dots[dots.length - 1].classList.add('active');
+            } else {
+                let currentSection = -1;
+                
+                // Check intro section first
+                if (scrollPosition < sections[0].offsetTop) {
+                    currentSection = 0; // About section
+                } else {
+                    // Check other sections
+                    sections.forEach((section, index) => {
+                        if (scrollPosition >= section.offsetTop) {
+                            currentSection = index + 1;
+                        }
+                    });
                 }
-            });
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                    if (index === currentSection) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+        }
+        
+        // Click dots to scroll to section
+        function setupDotNavigation() {
+            const intro = document.getElementById('intro-section');
+            const sections = document.querySelectorAll('h2');
+            const dots = document.querySelectorAll('.dot');
             
             dots.forEach((dot, index) => {
-                dot.classList.remove('active');
-                if (index === currentSection) {
-                    dot.classList.add('active');
-                }
+                dot.addEventListener('click', function() {
+                    if (index === 0) {
+                        // Scroll to intro/about section
+                        intro.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else if (sections[index - 1]) {
+                        // Scroll to other sections
+                        sections[index - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    // Update active dot immediately
+                    dots.forEach(d => d.classList.remove('active'));
+                    this.classList.add('active');
+                });
             });
         }
         
         window.addEventListener('scroll', updateDots);
-        window.addEventListener('load', updateDots);
+        window.addEventListener('load', function() {
+            updateDots();
+            setupDotNavigation();
+        });
         
         // Abstract and project description toggle functionality
         document.querySelectorAll('.abstract-toggle').forEach(link => {
