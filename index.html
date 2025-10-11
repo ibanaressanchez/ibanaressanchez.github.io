@@ -73,18 +73,36 @@
             right: 20px;
             background: var(--badge-bg);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 8px 15px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
             cursor: pointer;
-            font-size: 14px;
-            color: var(--text-color);
+            font-size: 18px;
+            color: var(--text-secondary);
             transition: all 0.3s ease;
             z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
         }
         
         .theme-toggle:hover {
-            background: var(--link-color);
-            color: white;
+            background: var(--border-color);
+        }
+        
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .theme-toggle svg.moon-icon {
+            fill: var(--text-secondary);
         }
         
         .container {
@@ -351,7 +369,22 @@
     </style>
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <svg viewBox="0 0 24 24" class="moon-icon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg viewBox="0 0 24 24" class="sun-icon" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
     <div class="container">
         <!-- Left Column -->
         <div class="sidebar">
@@ -515,18 +548,30 @@
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             
-            // Update button emoji
-            const button = document.querySelector('.theme-toggle');
-            button.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            // Update button icons
+            const moonIcon = document.querySelector('.moon-icon');
+            const sunIcon = document.querySelector('.sun-icon');
+            if (newTheme === 'dark') {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            } else {
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            }
         }
         
         // Load saved theme on page load
         window.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            const button = document.querySelector('.theme-toggle');
-            if (button) {
-                button.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            const moonIcon = document.querySelector('.moon-icon');
+            const sunIcon = document.querySelector('.sun-icon');
+            if (savedTheme === 'dark') {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            } else {
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
             }
         });
         
