@@ -63,7 +63,26 @@
             letter-spacing: -0.01em;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
             transition: background 0.3s ease, color 0.3s ease;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Top accent line */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--link-color);
+            z-index: 101;
         }
         
         /* Dark mode toggle button */
@@ -294,10 +313,18 @@
             line-height: 1.7;
             color: var(--paper-info);
             font-weight: 300;
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
         }
         
         .abstract.show {
             display: block;
+            animation: fadeInAbstract 0.2s ease-in forwards;
+        }
+        
+        @keyframes fadeInAbstract {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* Teaching Section */
@@ -339,6 +366,69 @@
             opacity: 0.8;
         }
         
+        /* Footer - removed since links moved to sidebar */
+        
+        /* Section indicator dots */
+        .section-dots {
+            position: fixed;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background: var(--link-color);
+            transform: scale(1.5);
+        }
+        
+        /* Print styles */
+        @media print {
+            body::before,
+            .theme-toggle,
+            .section-dots,
+            .footer {
+                display: none;
+            }
+            
+            body {
+                padding: 20px;
+                animation: none;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                page-break-after: always;
+            }
+            
+            .abstract {
+                display: block !important;
+                opacity: 1 !important;
+                border-left: 2px solid #000;
+            }
+            
+            a {
+                color: #000;
+                text-decoration: underline;
+            }
+        }
+        
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .container {
@@ -364,6 +454,10 @@
             .theme-toggle {
                 top: 10px;
                 right: 10px;
+            }
+            
+            .section-dots {
+                display: none;
             }
         }
     </style>
@@ -405,6 +499,22 @@
             <div class="address">
                 32 Lincoln's Inn Fields<br>
                 London WC2A 3PH, UK
+            </div>
+            
+            <div class="social-sidebar" style="margin-top: 30px; display: flex; gap: 15px; align-items: center;">
+                <a href="https://www.lse.ac.uk/economics/people/research-students/ignacio-banares-sanchez" title="LSE Profile" target="_blank" style="color: white; background: var(--text-secondary); transition: opacity 0.2s ease; text-decoration: none; font-weight: 600; font-size: 10px; padding: 5px; border-radius: 2px; letter-spacing: -0.03em; font-family: Arial, sans-serif; line-height: 1; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px;">
+                    LSE
+                </a>
+                <a href="https://scholar.google.com/citations?user=YOURID" title="Google Scholar" target="_blank" style="color: var(--text-secondary); transition: opacity 0.2s ease;">
+                    <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: currentColor;">
+                        <path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/>
+                    </svg>
+                </a>
+                <a href="https://bsky.app/profile/yourusername.bsky.social" title="Bluesky" target="_blank" style="color: var(--text-secondary); transition: opacity 0.2s ease;">
+                    <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: currentColor;">
+                        <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/>
+                    </svg>
+                </a>
             </div>
         </div>
         
@@ -537,6 +647,17 @@
                     <span class="course-title">IZA/FCDO G²LM|LIC ONLINE Development Economics Course</span>
                 </div>
             </div>
+            
+            <!-- Footer removed - all social links now in sidebar -->
+        </div>
+        
+        <!-- Section indicator dots -->
+        <div class="section-dots">
+            <div class="dot active" data-section="intro"></div>
+            <div class="dot" data-section="working-papers"></div>
+            <div class="dot" data-section="work-progress"></div>
+            <div class="dot" data-section="policy"></div>
+            <div class="dot" data-section="teaching"></div>
         </div>
     </div>
     
