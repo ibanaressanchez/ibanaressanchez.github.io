@@ -41,8 +41,8 @@
         }
         
         .profile-img {
-            width: 260px;
-            height: 260px;
+            width: 240px;
+            height: 240px;
             border-radius: 10px;
             margin-bottom: 20px;
             object-fit: cover;
@@ -136,11 +136,6 @@
             margin-bottom: 5px;
             color: #2a2a2a;
             font-size: 16px;
-            transition: color 0.2s ease;
-        }
-        
-        .paper:hover .paper-title {
-            color: #1a1a1a;
         }
         
         .job-market {
@@ -264,14 +259,19 @@
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     <div class="container">
         <!-- Left Column -->
         <div class="sidebar">
-            <img src="IMG_9746.jpeg" alt="Ignacio Banares-Sanchez" class="profile-img">
+            <div class="profile-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">IB</div>
             
             <h1>Ignacio Banares-Sanchez</h1>
             <div class="title">PhD Candidate in Economics</div>
             <div class="affiliation">London School of Economics</div>
+            
+            <div style="margin: 15px 0;">
+                <a href="#" class="cv-button" style="display: inline-block; background: var(--cv-btn-bg); color: white; padding: 6px 16px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.5px; transition: background 0.2s ease;" onmouseover="this.style.background='var(--cv-btn-hover)'" onmouseout="this.style.background='var(--cv-btn-bg)'">Download CV</a>
+            </div>
             
             <div class="contact-info">
                 <a href="mailto:i.banares-sanchez@lse.ac.uk">i.banares-sanchez@lse.ac.uk</a>
@@ -288,7 +288,7 @@
             <div class="intro">
                 I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE), where I am affiliated with STICERD's Economics of Environment and Energy (EEE) Programme. I work on environmental and development questions, with a focus on urban and regional economics. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources.
                 <br><br>
-                <strong>I will be on the 2025-26 academic job market.</strong> You can find my CV <a href="https://ibanaressanchez.github.io/Banares_Sanchez_CV.pdf">here</a>.
+                <strong>I will be on the 2025-26 academic job market.</strong> You can find my CV <a href="#">here</a>.
             </div>
             
             <h2>Working Papers</h2>
@@ -306,12 +306,12 @@
                     <strong>Funding:</strong> IGC, STICERD
                 </div>
                 <div class="paper-links">
-                    <a href="https://ibanaressanchez.github.io/jmp.pdf">[paper]</a>
-                    <a href="#">[policy brief]</a>
                     <a href="#" class="abstract-toggle" data-target="abstract1">▸ Abstract</a>
+                    <a href="#" style="color: #999; cursor: default; text-decoration: none;">[paper]</a>
+                    <a href="#">[policy brief]</a>
                 </div>
                 <div class="abstract" id="abstract1">
-                    Low enforcement and fiscal capacity limit the set of policy instruments available for municipal governments to control the externalities arising from density. Citizens resort to unregulated markets for service provision, but these leave externalities unaddressed. We build a structural model of solid waste collection and disposal, and estimate it using experimental variation and bespoke data we collect in Accra, through surveys with households and informal waste collectors, and a self-developed smartphone application. Halving fees at waste transfer stations can correct environmental externalities unpriced by the market up to the social planner's choice. Welfare gains exceed policy implementation costs, but these are substantial –55% of the current budget for solid waste management. Pricing policies are more effective and cheaper than planned new infrastructure development alone. In settings with low fiscal and regulatory capacity, limited second-best formal pricing regulation can help internalise environmental costs, effectively delivering public services by leveraging informal markets.
+                    Low enforcement and fiscal capacity limit the set of policy instruments available for municipal governments to control the externalities arising from density. Citizens resort to unregulated markets for service provision, but these leave externalities unaddressed...
                 </div>
             </div>
             
@@ -327,9 +327,6 @@
                 <div class="paper-links">
                     <a href="#" class="abstract-toggle" data-target="abstract2">▸ Abstract</a>
                 </div>
-                <div class="abstract" id="abstract2">
-                    Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.
-                </div>
             </div>
             
             <h2>Work in Progress</h2>
@@ -340,9 +337,6 @@
                 <div class="paper-links">
                     <a href="#" class="abstract-toggle" data-target="abstract3">▸ Project description</a>
                 </div>
-                <div class="abstract" id="abstract3">
-                    The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. Sanitation investments might therefore be essential to allow for people to tolerate density and for positive agglomeration externalities to emerge; thereby turning population density from a downside into an upside. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century. We first present event studies examining changes in firm density, residential density, land values, and disease incidences. We then leverage an urban model to estimate the impact of sewers on the strength of agglomeration and city structure. Through counterfactual analyses we examine the impact, cost-benefit, and alternative placements of sewers. Finally, we asses the extent to which sewers displaced pollution to the Parisian suburbs, affecting their long-term development.
-                </div>
             </div>
             
             <div class="paper">
@@ -350,44 +344,6 @@
                 <div class="coauthors">(with Oriana Bandiera, Robin Burgess, Tim Dobermann, Jay Euijung Lee, Jeongkyun Won, and Hyunjoo Yang)</div>
                 <div class="paper-info">
                     <strong>Funding:</strong> STEG, ESRC
-                </div>
-            </div>
-            
-            <div class="paper">
-                <div class="paper-title">Electricity Supply and Firm Agglomeration in Ghana</div>
-                <div class="coauthors">(with Tim Dobermann and Niclas Moneke)</div>
-                <div class="paper-info">
-                    <strong>Funding:</strong> IGC
-                </div>
-                <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract4">▸ Project description</a>
-                </div>
-                <div class="abstract" id="abstract4">
-                    Electricity is a crucial input for modern production, yet its quality across time and space varies substantially. In this project, we ask how the endogenous allocation of electricity affects firm productivity and agglomeration. We build a unique spatial dataset combining administrative data on electricity consumption, engineering records on electricity outages, and a detailed firm panel from a national census. With this data in hand, we use a machine learning algorithm to predict the spatial allocation of outages following exogenous supply shocks. Using this as an instrument, we obtain reduced-form causal estimates of how firms respond to outages. Lastly, leveraging a dynamic spatial general equilibrium model, we compare the current equilibrium observed in the data to counterfactuals where outages are (i) reduced and, (ii) optimally adjusted to maximise welfare, taking into account the spatial misallocation in firm entry and growth across the country.
-                </div>
-            </div>
-            
-            <div class="paper">
-                <div class="paper-title">Water, Sanitation, and Climate Resilience in the Tropics</div>
-                <div class="coauthors">(with Juliana Helo)</div>
-                <div class="paper-info">
-                    <strong>Funding:</strong> IGC
-                </div>
-                <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract5">▸ Project description</a>
-                </div>
-                <div class="abstract" id="abstract5">
-                    Using geolocated information on over 400,000 water points and a variety of health surveys across Sub-Saharan Africa, we document that access to functioning water and improved sanitation increases villages' resilience to high temperatures, reducing mortality and disease incidence. Leveraging machine learning techniques and rich information on the characteristics of water points, we identify that whether maintenance is private, communal, or institutional is a key determinant for a water point functional status. We design an intervention to improve the maintenance of water points when its responsibility is assigned at the community-level.
-                </div>
-            </div>
-            
-            <h2>Policy Work</h2>
-            
-            <div class="paper">
-                <div class="paper-title">Water and Sanitation Provision in Developing Cities</div>
-                <div class="coauthors">(with Mikey Blake, Victoria Delbridge, Ed Glaeser, and Yoshiki Wiskamp)</div>
-                <div class="paper-info">
-                    IGC Policy Paper
                 </div>
             </div>
             
@@ -416,26 +372,40 @@
     </div>
     
     <script>
-        // Abstract and project description toggle functionality
+        // Dark mode toggle
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update button emoji
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const button = document.querySelector('.theme-toggle');
+            if (button) {
+                button.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            }
+        });
+        
+        // Abstract toggle functionality
         document.querySelectorAll('.abstract-toggle').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('data-target');
                 const abstract = document.getElementById(targetId);
-                abstract.classList.toggle('show');
-                
-                // Change arrow direction
-                if (abstract.classList.contains('show')) {
-                    if (this.textContent.includes('Abstract')) {
-                        this.textContent = '▾ Abstract';
+                if (abstract) {
+                    abstract.classList.toggle('show');
+                    if (abstract.classList.contains('show')) {
+                        this.textContent = '▾ ' + (this.textContent.includes('Abstract') ? 'Abstract' : 'Project description');
                     } else {
-                        this.textContent = '▾ Project description';
-                    }
-                } else {
-                    if (this.textContent.includes('Abstract')) {
-                        this.textContent = '▸ Abstract';
-                    } else {
-                        this.textContent = '▸ Project description';
+                        this.textContent = '▸ ' + (this.textContent.includes('Abstract') ? 'Abstract' : 'Project description');
                     }
                 }
             });
