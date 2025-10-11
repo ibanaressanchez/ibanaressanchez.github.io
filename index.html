@@ -616,18 +616,11 @@
     <div class="map-overlay" id="mapOverlay">
         <div class="map-container">
             <div class="map-header">
-                <div class="map-title">Trading Trash on Tricycles: Interactive Maps</div>
+                <div class="map-title">Trading Trash on Tricycles: Interactive Map</div>
                 <button class="map-close" onclick="closeMapViewer()">×</button>
             </div>
-            <div class="map-tabs">
-                <button class="map-tab active" onclick="switchMap('map1')">Tricycle Share</button>
-                <button class="map-tab" onclick="switchMap('map2')">+ App Transactions</button>
-                <button class="map-tab" onclick="switchMap('map3')">Collector Survey</button>
-            </div>
             <div class="map-content">
-                <iframe id="map1" class="map-iframe active" src="maps/tricycle_share.html"></iframe>
-                <iframe id="map2" class="map-iframe" src="maps/tricycle_transactions.html"></iframe>
-                <iframe id="map3" class="map-iframe" src="maps/collector_survey.html"></iframe>
+                <iframe class="map-iframe active" src="maps/collector_survey.html"></iframe>
             </div>
         </div>
     </div>
@@ -878,24 +871,6 @@
         function closeMapViewer() {
             document.getElementById('mapOverlay').classList.remove('show');
             document.body.style.overflow = 'auto';
-        }
-        
-        function switchMap(mapId) {
-            // Hide all maps
-            document.querySelectorAll('.map-iframe').forEach(iframe => {
-                iframe.classList.remove('active');
-            });
-            
-            // Remove active from all tabs
-            document.querySelectorAll('.map-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected map
-            document.getElementById(mapId).classList.add('active');
-            
-            // Activate clicked tab
-            event.target.classList.add('active');
         }
         
         // Close map viewer with Escape key
