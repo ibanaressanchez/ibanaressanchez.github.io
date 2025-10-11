@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignacio Banares-Sanchez - LSE Economics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
@@ -39,8 +41,8 @@
         }
         
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 260px;
+            height: 260px;
             border-radius: 10px;
             margin-bottom: 20px;
             object-fit: cover;
@@ -76,7 +78,7 @@
         }
         
         .contact-info a {
-            color: #0066cc;
+            color: #2563eb;
             text-decoration: none;
         }
         
@@ -102,7 +104,7 @@
         }
         
         .intro a {
-            color: #0066cc;
+            color: #2563eb;
             text-decoration: none;
         }
         
@@ -126,6 +128,7 @@
         
         .paper {
             margin-bottom: 35px;
+            transition: all 0.2s ease;
         }
         
         .paper-title {
@@ -133,6 +136,11 @@
             margin-bottom: 5px;
             color: #2a2a2a;
             font-size: 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .paper:hover .paper-title {
+            color: #1a1a1a;
         }
         
         .job-market {
@@ -195,35 +203,40 @@
         
         /* Teaching Section */
         .teaching-section {
-            margin-top: 40px;
+            margin-top: 25px;
         }
         
-        .teaching-current {
-            margin-bottom: 20px;
+        .teaching-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
         }
         
-        .teaching-current h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .course-code {
+            display: inline-block;
+            background: #f0f4f8;
+            color: #4a5568;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 400;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            letter-spacing: 0.5px;
+            min-width: 50px;
+            text-align: center;
         }
         
-        .teaching-list {
-            list-style: none;
+        .course-title {
             color: #666;
             font-size: 15px;
+            flex: 1;
         }
         
-        .teaching-list li {
-            margin-bottom: 5px;
-            padding-left: 15px;
-            position: relative;
-        }
-        
-        .teaching-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
+        .course-level {
+            color: #999;
+            font-size: 14px;
+            font-style: italic;
         }
         
         /* Mobile Responsive */
@@ -241,6 +254,12 @@
             .profile-img {
                 margin: 0 auto 20px;
             }
+            
+            .teaching-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -248,7 +267,6 @@
     <div class="container">
         <!-- Left Column -->
         <div class="sidebar">
-            <!-- Add your photo here -->
             <img src="IMG_9746.jpeg" alt="Ignacio Banares-Sanchez" class="profile-img">
             
             <h1>Ignacio Banares-Sanchez</h1>
@@ -376,14 +394,27 @@
             <h2>Teaching</h2>
             
             <div class="teaching-section">
-                <div class="teaching-current">
-                    <h3>Current Teaching</h3>
-                    <ul class="teaching-list">
-                        <li>Development Economics for MPA students (graduate)</li>
-                        <li>Environmental Economics (undergraduate)</li>
-                        <li>Mathematics and Statistics for MPP students (graduate)</li>
-                        <li>IZA/FCDO G²LM|LIC ONLINE Development Economics Course</li>
-                    </ul>
+                <div class="teaching-item">
+                    <span class="course-code">PP454</span>
+                    <span class="course-title">Development Economics for MPA students</span>
+                    <span class="course-level">(graduate)</span>
+                </div>
+                <div class="teaching-item">
+                    <span class="course-code">EC330</span>
+                    <span class="course-title">Environmental Economics</span>
+                    <span class="course-level">(undergraduate)</span>
+                </div>
+                <div class="teaching-item">
+                    <span class="course-code">EC325</span>
+                    <span class="course-title">Public Economics</span>
+                    <span class="course-level">(2024/25)</span>
+                </div>
+                <div class="teaching-item">
+                    <span class="course-title">Mathematics and Statistics for MPP students</span>
+                    <span class="course-level">(graduate)</span>
+                </div>
+                <div class="teaching-item">
+                    <span class="course-title">IZA/FCDO G²LM|LIC ONLINE Development Economics Course</span>
                 </div>
             </div>
         </div>
@@ -412,16 +443,6 @@
                         this.textContent = '▸ Project description';
                     }
                 }
-            });
-        });
-        
-        // Project description links
-        document.querySelectorAll('.project-desc').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                // You can implement project description functionality here
-                // For now, just a placeholder
-                alert('Project description functionality to be implemented');
             });
         });
     </script>
