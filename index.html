@@ -502,10 +502,10 @@
             </div>
             
             <div class="social-sidebar" style="margin-top: 30px; display: flex; gap: 15px; align-items: center;">
-                <a href="https://www.lse.ac.uk/economics/people/research-students/ignacio-banares-sanchez" title="LSE Profile" target="_blank" style="color: white; background: var(--text-secondary); transition: opacity 0.2s ease; text-decoration: none; font-weight: 600; font-size: 10px; padding: 5px; border-radius: 2px; letter-spacing: -0.03em; font-family: Arial, sans-serif; line-height: 1; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px;">
+                <a href="https://www.lse.ac.uk/people/ignacio-banares-sanchez" title="LSE Profile" target="_blank" style="color: white; background: var(--text-secondary); transition: opacity 0.2s ease; text-decoration: none; font-weight: 600; font-size: 10px; padding: 5px; border-radius: 2px; letter-spacing: -0.03em; font-family: Arial, sans-serif; line-height: 1; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px;">
                     LSE
                 </a>
-                <a href="https://scholar.google.com/citations?user=YOURID" title="Google Scholar" target="_blank" style="color: var(--text-secondary); transition: opacity 0.2s ease;">
+                <a href="https://scholar.google.com/citations?user=Wyj_C4oAAAAJ&hl=en" title="Google Scholar" target="_blank" style="color: var(--text-secondary); transition: opacity 0.2s ease;">
                     <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: currentColor;">
                         <path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/>
                     </svg>
@@ -531,7 +531,7 @@
             <div class="paper">
                 <div class="paper-title">
                     Trading Trash on Tricycles
-                    <span class="job-market">(Job Market Paper)</span>
+                    <span style="display: inline-block; background: var(--link-color); color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; margin-left: 8px; letter-spacing: 0.3px; font-style: normal;">JOB MARKET PAPER</span>
                 </div>
                 <div class="coauthors">(with Yoshiki Wiskamp)</div>
                 <div class="paper-info">
@@ -695,6 +695,30 @@
                 sunIcon.style.display = 'none';
             }
         });
+        
+        // Section indicator dots functionality
+        function updateDots() {
+            const sections = document.querySelectorAll('h2');
+            const dots = document.querySelectorAll('.dot');
+            const scrollPosition = window.scrollY + 100;
+            
+            let currentSection = 0;
+            sections.forEach((section, index) => {
+                if (scrollPosition >= section.offsetTop) {
+                    currentSection = index;
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSection) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateDots);
+        window.addEventListener('load', updateDots);
         
         // Abstract and project description toggle functionality
         document.querySelectorAll('.abstract-toggle').forEach(link => {
