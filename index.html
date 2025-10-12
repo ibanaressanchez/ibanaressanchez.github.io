@@ -280,12 +280,6 @@
             }
         }
         
-        .job-market {
-            color: var(--link-color);
-            font-style: italic;
-            font-weight: 400;
-        }
-        
         .coauthors {
             color: var(--paper-text);
             margin-bottom: 5px;
@@ -362,7 +356,7 @@
             }
         }
         
-        /* Map Viewer Styles */
+        /* Map/App Viewer Styles */
         .map-overlay {
             display: none;
             position: fixed;
@@ -427,33 +421,6 @@
             color: var(--text-color);
         }
         
-        .map-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .map-tab {
-            padding: 8px 16px;
-            background: var(--badge-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            color: var(--text-secondary);
-            transition: all 0.2s ease;
-        }
-        
-        .map-tab:hover {
-            background: var(--border-color);
-        }
-        
-        .map-tab.active {
-            background: var(--link-color);
-            color: white;
-            border-color: var(--link-color);
-        }
-        
         .map-content {
             flex: 1;
             position: relative;
@@ -466,11 +433,6 @@
             width: 100%;
             height: 100%;
             border: none;
-            display: none;
-        }
-        
-        .map-iframe.active {
-            display: block;
         }
         
         /* Teaching Section */
@@ -613,15 +575,6 @@
                 height: 90vh;
                 padding: 15px;
             }
-            
-            .map-tabs {
-                flex-wrap: wrap;
-            }
-            
-            .map-tab {
-                font-size: 12px;
-                padding: 6px 12px;
-            }
         }
     </style>
 </head>
@@ -643,15 +596,15 @@
         </svg>
     </button>
     
-    <!-- Map Overlay -->
-    <div class="map-overlay" id="mapOverlay">
+    <!-- App Viewer Overlay -->
+    <div class="map-overlay" id="appOverlay">
         <div class="map-container">
             <div class="map-header">
-                <div class="map-title">Trading Trash on Tricycles: Interactive Map</div>
-                <button class="map-close" onclick="closeMapViewer()">×</button>
+                <div class="map-title">Data Collection: Bokoollect App</div>
+                <button class="map-close" onclick="closeAppViewer()">×</button>
             </div>
             <div class="map-content">
-                <iframe class="map-iframe active" src="maps/collector_survey.html"></iframe>
+                <iframe class="map-iframe" src="app-showcase.html"></iframe>
             </div>
         </div>
     </div>
@@ -720,6 +673,7 @@
                 <div class="paper-links">
                     <a href="#" class="abstract-toggle" data-target="abstract1">▸ Abstract</a>
                     <a href="#" class="disabled">[paper]</a>
+                    <a href="data-details.html" target="_blank">Data Details</a>
                 </div>
                 <div class="abstract" id="abstract1">
                     Low enforcement and fiscal capacity limit the set of policy instruments available for municipal governments to control the externalities arising from density. Citizens resort to unregulated markets for service provision, but these leave externalities unaddressed. We build a structural model of solid waste collection and disposal, and estimate it using experimental variation and bespoke data we collect in Accra, through surveys with households and informal waste collectors, and a self-developed smartphone application. Halving fees at waste transfer stations can correct environmental externalities unpriced by the market up to the social planner's choice. Welfare gains exceed policy implementation costs, but these are substantial –55% of the current budget for solid waste management. Pricing policies are more effective and cheaper than planned new infrastructure development alone. In settings with low fiscal and regulatory capacity, limited second-best formal pricing regulation can help internalise environmental costs, effectively delivering public services by leveraging informal markets.
@@ -890,22 +844,22 @@
             }
         });
         
-        // Map viewer functions
-        function openMapViewer(event) {
+        // App viewer functions
+        function openAppViewer(event) {
             event.preventDefault();
-            document.getElementById('mapOverlay').classList.add('show');
+            document.getElementById('appOverlay').classList.add('show');
             document.body.style.overflow = 'hidden';
         }
         
-        function closeMapViewer() {
-            document.getElementById('mapOverlay').classList.remove('show');
+        function closeAppViewer() {
+            document.getElementById('appOverlay').classList.remove('show');
             document.body.style.overflow = 'auto';
         }
         
-        // Close map viewer with Escape key
+        // Close viewers with Escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-                closeMapViewer();
+                closeAppViewer();
             }
         });
         
