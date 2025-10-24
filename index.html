@@ -31,6 +31,8 @@
             --cv-btn-hover: #2563eb;
             --profile-bg: #f0f0f0;
             --map-overlay-bg: rgba(255, 255, 255, 0.98);
+            --info-box-bg: #f8fafc;
+            --info-box-border: #2563eb;
         }
         
         /* Dark mode colors */
@@ -51,6 +53,8 @@
             --cv-btn-hover: #5a8af2;
             --profile-bg: #2a2a2a;
             --map-overlay-bg: rgba(26, 26, 26, 0.98);
+            --info-box-bg: #242424;
+            --info-box-border: #5a8af2;
         }
         
         body {
@@ -227,6 +231,46 @@
         }
         
         .intro a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Info Box Styles */
+        .info-box {
+            background: var(--info-box-bg);
+            border: 2px solid var(--info-box-border);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .info-box-row {
+            margin-bottom: 12px;
+        }
+        
+        .info-box-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-box-label {
+            font-weight: 500;
+            color: var(--heading-color);
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        
+        .info-box-content {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .info-box-content a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .info-box-content a:hover {
             text-decoration: underline;
         }
         
@@ -654,6 +698,25 @@
                 I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE), where I am affiliated with STICERD's Economics of Environment and Energy (EEE) Programme. I work on environmental and development questions, with a focus on urban and regional economics. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources.
                 <br><br>
                 <strong>I will be on the 2025-26 academic job market.</strong> You can find my CV <a href="https://ibanaressanchez.github.io/Banares_Sanchez_CV.pdf">here</a>.
+            </div>
+            
+            <!-- Placement Director and References Box -->
+            <div class="info-box">
+                <div class="info-box-row">
+                    <div class="info-box-label">Placement Director:</div>
+                    <div class="info-box-content">
+                        <a href="mailto:m.doepke@lse.ac.uk">Matthias Doepke</a>
+                    </div>
+                </div>
+                <div class="info-box-row">
+                    <div class="info-box-label">References:</div>
+                    <div class="info-box-content">
+                        <a href="mailto:r.burgess@lse.ac.uk">Robin Burgess</a>, 
+                        <a href="mailto:o.bandiera@lse.ac.uk">Oriana Bandiera</a>, 
+                        <a href="mailto:g.t.bryan@lse.ac.uk">Gharad Bryan</a>, 
+                        <a href="mailto:s.dhingra@lse.ac.uk">Swati Dhingra</a>
+                    </div>
+                </div>
             </div>
             
             <h2>Working Papers</h2>
