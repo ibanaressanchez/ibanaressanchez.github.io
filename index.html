@@ -821,7 +821,7 @@
                 <div class="paper-title">Channeling Density: Sewerage Investments in 19th-Century Paris</div>
                 <div class="coauthors">(with Yoshiki Wiskamp)</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract3">▸ Project description</a>
+                    <a href="#" class="abstract-toggle" data-target="abstract3">▸ Abstract</a>
                 </div>
                 <div class="abstract" id="abstract3">
                     The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. Sanitation investments might therefore be essential to allow for people to tolerate density and for positive agglomeration externalities to emerge; thereby turning population density from a downside into an upside. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century. We first present event studies examining changes in firm density, residential density, land values, and disease incidences. We then leverage an urban model to estimate the impact of sewers on the strength of agglomeration and city structure. Through counterfactual analyses we examine the impact, cost-benefit, and alternative placements of sewers. Finally, we asses the extent to which sewers displaced pollution to the Parisian suburbs, affecting their long-term development.
@@ -834,7 +834,11 @@
                 <div class="paper-title">The Miracle on the Han: Urbanisation, Industrial Policy, and Rural Development</div>
                 <div class="coauthors">(with Oriana Bandiera, Robin Burgess, Tim Dobermann, Jay Euijung Lee, Jeongkyun Won, and Hyunjoo Yang)</div>
                 <div class="paper-links">
+                    <a href="#" class="abstract-toggle" data-target="abstract6">▸ Abstract</a>
                     <a href="#" class="funders-toggle" data-target="funders3">▸ Funders and Partners</a>
+                </div>
+                <div class="abstract" id="abstract6">
+                    Economic growth involves the spatial and sectoral reallocation of people and firms. How much should governments plan this reallocation, and what makes spatial planning successful? South Korea rose from poverty to become a leading industrialised economy today in a remarkably condensed timeline. The "Miracle on the Han" involved rapid urbanisation, industrial modernisation, and rural productivity growth, alongside aggressive spatial planning policies in the form of regional industrial parks, highway construction, and rural infrastructure development. We are creating a new historical database tracking all facets of South Korea's structural transformation from the mid- to late-20th century. Utilising newly digitised historical micro data on output, firms, employment, population, urbanisation, and infrastructure, we study the policies and channels through which the country achieved its remarkable transformation.
                 </div>
                 <div class="funders" id="funders3">
                     <strong>Funders and Partners:</strong> Structural Transformation and Economic Growth (STEG), Economic and Social Research Council (ESRC)
@@ -845,7 +849,7 @@
                 <div class="paper-title">Electricity Supply and Firm Agglomeration in Ghana</div>
                 <div class="coauthors">(with Tim Dobermann and Niclas Moneke)</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract4">▸ Project description</a>
+                    <a href="#" class="abstract-toggle" data-target="abstract4">▸ Abstract</a>
                     <a href="#" class="funders-toggle" data-target="funders4">▸ Funders and Partners</a>
                 </div>
                 <div class="abstract" id="abstract4">
@@ -860,7 +864,7 @@
                 <div class="paper-title">Water, Sanitation, and Climate Resilience in the Tropics</div>
                 <div class="coauthors">(with Juliana Helo)</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract5">▸ Project description</a>
+                    <a href="#" class="abstract-toggle" data-target="abstract5">▸ Abstract</a>
                     <a href="#" class="funders-toggle" data-target="funders5">▸ Funders and Partners</a>
                 </div>
                 <div class="abstract" id="abstract5">
@@ -1063,17 +1067,9 @@
                 abstract.classList.toggle('show');
                 
                 if (abstract.classList.contains('show')) {
-                    if (this.textContent.includes('Abstract')) {
-                        this.textContent = '▾ Abstract';
-                    } else {
-                        this.textContent = '▾ Project description';
-                    }
+                    this.textContent = '▾ Abstract';
                 } else {
-                    if (this.textContent.includes('Abstract')) {
-                        this.textContent = '▸ Abstract';
-                    } else {
-                        this.textContent = '▸ Project description';
-                    }
+                    this.textContent = '▸ Abstract';
                 }
             });
         });
