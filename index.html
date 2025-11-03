@@ -158,6 +158,7 @@
             aspect-ratio: 3/4;
             border-radius: 10px;
             margin-bottom: 20px;
+            margin-top: 30px;
             object-fit: cover;
             object-position: center;
             background: var(--profile-bg);
@@ -243,45 +244,11 @@
             color: var(--text-secondary);
             font-size: 13px;
             line-height: 1.5;
-            margin-bottom: 15px;
-        }
-        
-        .location-map {
-            width: 100%;
-            height: 180px;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            filter: grayscale(100%) contrast(1.1);
-            opacity: 0.75;
-            transition: all 0.3s ease;
-        }
-        
-        .location-map:hover {
-            filter: grayscale(70%);
-            opacity: 0.9;
-        }
-        
-        [data-theme="dark"] .location-map {
-            opacity: 0.6;
-            filter: grayscale(100%) contrast(1.2) brightness(0.8);
-        }
-        
-        [data-theme="dark"] .location-map:hover {
-            opacity: 0.8;
-            filter: grayscale(80%) contrast(1.2) brightness(0.8);
-        }
-        
-        .location-map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
         }
         
         /* Right Column */
         .main-content {
-            padding-top: 10px;
+            padding-top: 30px;
         }
         
         .intro {
@@ -704,11 +671,6 @@
                 margin: 0 auto 20px;
             }
             
-            .location-map {
-                margin: 15px auto 0;
-                max-width: 300px;
-            }
-            
             .social-sidebar {
                 justify-content: center !important;
             }
@@ -786,10 +748,6 @@
             <div class="address">
                 32 Lincoln's Inn Fields<br>
                 London WC2A 3PH, UK
-            </div>
-            
-            <div class="location-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9147707367647!2d-0.11804!3d51.516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c9c7fd2b7b%3A0x7a2e0e9c5c8c8b1!2s32%20Lincoln&#39;s%20Inn%20Fields%2C%20London%20WC2A%203PH%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
             </div>
             
             <div class="social-sidebar" style="margin-top: 30px; display: flex; gap: 15px; align-items: center;">
