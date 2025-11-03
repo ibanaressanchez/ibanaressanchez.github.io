@@ -24,6 +24,7 @@
             --border-color: #e8e8e8;
             --abstract-bg: #f5f7fa;
             --presentations-bg: #fef9e7;
+            --funders-bg: #fff5f5;
             --badge-bg: #f0f4f8;
             --badge-text: #4a5568;
             --paper-text: #7a7a7a;
@@ -45,6 +46,7 @@
             --border-color: #333;
             --abstract-bg: #252525;
             --presentations-bg: #2a2515;
+            --funders-bg: #2a1515;
             --badge-bg: #2a2a2a;
             --badge-text: #b0b0b0;
             --paper-text: #999;
@@ -402,6 +404,25 @@
             animation: fadeInAbstract 0.4s ease-in-out forwards;
         }
         
+        .funders {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: var(--funders-bg);
+            border-left: 3px solid #e74c3c;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--paper-info);
+            font-weight: 300;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+        
+        .funders.show {
+            display: block;
+            animation: fadeInAbstract 0.4s ease-in-out forwards;
+        }
+        
         @keyframes fadeInAbstract {
             from { 
                 opacity: 0; 
@@ -580,7 +601,7 @@
                 page-break-after: always;
             }
             
-            .abstract, .presentations {
+            .abstract, .presentations, .funders {
                 display: block !important;
                 opacity: 1 !important;
                 border-left: 2px solid #000;
@@ -740,19 +761,20 @@
                     <a href="https://ibanaressanchez.github.io/jmp.pdf" target="_blank" class="jmp-badge" style="text-decoration: none;">JOB MARKET PAPER</a>
                 </div>
                 <div class="coauthors">(with Yoshiki Wiskamp)</div>
-                <div class="paper-info">
-                    <strong>Funding:</strong> IGC, STICERD
-                </div>
                 <div class="paper-links">
-                    <a href="#" class="presentations-toggle" data-target="presentations1">▸ Presentations</a>
                     <a href="#" class="abstract-toggle" data-target="abstract1">▸ Abstract</a>
                     <a href="https://ibanaressanchez.github.io/jmp.pdf" target="_blank">[paper]</a>
+                    <a href="#" class="presentations-toggle" data-target="presentations1">▸ Presentations</a>
+                    <a href="#" class="funders-toggle" data-target="funders1">▸ Funders and Partners</a>
+                </div>
+                <div class="abstract" id="abstract1">
+                    Large rates of urbanisation come with externalities arising from density. These are particularly pronounced in the case of uncontrolled trash disposal. Low enforcement and fiscal capacity make local governments slow to respond to these challenges and leave space for unregulated private provision, which fails to address vast environmental and health damages. We develop a smartphone application and conduct surveys with households and informal waste collectors, to map the whole market and infrastructure for trash collection and disposal in Accra, Ghana. Leveraging experimental variation and our rich bespoke data, we estimate a structural model that captures the decisions of households, informal collectors, and disposal site operators. Counterfactual results show that halving fees at waste transfer stations correct unpriced externalities up to the social planner's choice. Welfare gains exceed policy implementation costs, but these are substantial, reaching 55% of the current budget for solid waste management. The construction of planned new infrastructure achieves lower effectiveness and requires higher costs than pricing policies. In settings with low fiscal and regulatory capacity, where direct provision, bans, or first-best pollution taxes are not feasible, limited second-best regulation can internalise environmental costs, providing a path for public service delivery through informal markets.
                 </div>
                 <div class="presentations" id="presentations1">
                     <strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop; (scheduled) Seventeenth Annual Conference on Urban and Regional Economics (CURE), STEG Annual Conference and Theme Workshops 2026
                 </div>
-                <div class="abstract" id="abstract1">
-                    Large rates of urbanisation come with externalities arising from density. These are particularly pronounced in the case of uncontrolled trash disposal. Low enforcement and fiscal capacity make local governments slow to respond to these challenges and leave space for unregulated private provision, which fails to address vast environmental and health damages. We develop a smartphone application and conduct surveys with households and informal waste collectors, to map the whole market and infrastructure for trash collection and disposal in Accra, Ghana. Leveraging experimental variation and our rich bespoke data, we estimate a structural model that captures the decisions of households, informal collectors, and disposal site operators. Counterfactual results show that halving fees at waste transfer stations correct unpriced externalities up to the social planner's choice. Welfare gains exceed policy implementation costs, but these are substantial, reaching 55% of the current budget for solid waste management. The construction of planned new infrastructure achieves lower effectiveness and requires higher costs than pricing policies. In settings with low fiscal and regulatory capacity, where direct provision, bans, or first-best pollution taxes are not feasible, limited second-best regulation can internalise environmental costs, providing a path for public service delivery through informal markets.
+                <div class="funders" id="funders1">
+                    <strong>Funders and Partners:</strong> International Growth Centre (IGC), STICERD, Innovations for Poverty Action (IPA), DataPlas
                 </div>
             </div>
             
@@ -762,15 +784,15 @@
                 </div>
                 <div class="coauthors">(with Robin Burgess, David Laszlo, Pol Simpson, John Van Reenen, and Yifan Wang)</div>
                 <div class="paper-links">
-                    <a href="#" class="presentations-toggle" data-target="presentations2">▸ Presentations</a>
                     <a href="#" class="abstract-toggle" data-target="abstract2">▸ Abstract</a>
                     <a href="#" class="disabled">[draft coming soon]</a>
-                </div>
-                <div class="presentations" id="presentations2">
-                    <strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (scheduled) ASSA Annual Meeting in Philadelphia
+                    <a href="#" class="presentations-toggle" data-target="presentations2">▸ Presentations</a>
                 </div>
                 <div class="abstract" id="abstract2">
                     Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.
+                </div>
+                <div class="presentations" id="presentations2">
+                    <strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (scheduled) ASSA Annual Meeting in Philadelphia
                 </div>
             </div>
             
@@ -790,36 +812,41 @@
             <div class="paper">
                 <div class="paper-title">The Miracle on the Han: Urbanisation, Industrial Policy, and Rural Development</div>
                 <div class="coauthors">(with Oriana Bandiera, Robin Burgess, Tim Dobermann, Jay Euijung Lee, Jeongkyun Won, and Hyunjoo Yang)</div>
-                <div class="paper-info">
-                    <strong>Funding:</strong> STEG, ESRC
+                <div class="paper-links">
+                    <a href="#" class="funders-toggle" data-target="funders3">▸ Funders and Partners</a>
+                </div>
+                <div class="funders" id="funders3">
+                    <strong>Funders and Partners:</strong> Structural Transformation and Economic Growth (STEG), Economic and Social Research Council (ESRC)
                 </div>
             </div>
             
             <div class="paper">
                 <div class="paper-title">Electricity Supply and Firm Agglomeration in Ghana</div>
                 <div class="coauthors">(with Tim Dobermann and Niclas Moneke)</div>
-                <div class="paper-info">
-                    <strong>Funding:</strong> IGC
-                </div>
                 <div class="paper-links">
                     <a href="#" class="abstract-toggle" data-target="abstract4">▸ Project description</a>
+                    <a href="#" class="funders-toggle" data-target="funders4">▸ Funders and Partners</a>
                 </div>
                 <div class="abstract" id="abstract4">
                     Electricity is a crucial input for modern production, yet its quality across time and space varies substantially. In this project, we ask how the endogenous allocation of electricity affects firm productivity and agglomeration. We build a unique spatial dataset combining administrative data on electricity consumption, engineering records on electricity outages, and a detailed firm panel from a national census. With this data in hand, we use a machine learning algorithm to predict the spatial allocation of outages following exogenous supply shocks. Using this as an instrument, we obtain reduced-form causal estimates of how firms respond to outages. Lastly, leveraging a dynamic spatial general equilibrium model, we compare the current equilibrium observed in the data to counterfactuals where outages are (i) reduced and, (ii) optimally adjusted to maximise welfare, taking into account the spatial misallocation in firm entry and growth across the country.
+                </div>
+                <div class="funders" id="funders4">
+                    <strong>Funders and Partners:</strong> International Growth Centre (IGC)
                 </div>
             </div>
             
             <div class="paper">
                 <div class="paper-title">Water, Sanitation, and Climate Resilience in the Tropics</div>
                 <div class="coauthors">(with Juliana Helo)</div>
-                <div class="paper-info">
-                    <strong>Funding:</strong> IGC
-                </div>
                 <div class="paper-links">
                     <a href="#" class="abstract-toggle" data-target="abstract5">▸ Project description</a>
+                    <a href="#" class="funders-toggle" data-target="funders5">▸ Funders and Partners</a>
                 </div>
                 <div class="abstract" id="abstract5">
                     Using geolocated information on over 400,000 water points and a variety of health surveys across Sub-Saharan Africa, we document that access to functioning water and improved sanitation increases villages' resilience to high temperatures, reducing mortality and disease incidence. Leveraging machine learning techniques and rich information on the characteristics of water points, we identify that whether maintenance is private, communal, or institutional is a key determinant for a water point functional status. We design an intervention to improve the maintenance of water points when its responsibility is assigned at the community-level.
+                </div>
+                <div class="funders" id="funders5">
+                    <strong>Funders and Partners:</strong> International Growth Centre (IGC)
                 </div>
             </div>
             
@@ -1036,6 +1063,22 @@
                     this.textContent = '▾ Presentations';
                 } else {
                     this.textContent = '▸ Presentations';
+                }
+            });
+        });
+        
+        // Funders toggle
+        document.querySelectorAll('.funders-toggle').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const funders = document.getElementById(targetId);
+                funders.classList.toggle('show');
+                
+                if (funders.classList.contains('show')) {
+                    this.textContent = '▾ Funders and Partners';
+                } else {
+                    this.textContent = '▸ Funders and Partners';
                 }
             });
         });
