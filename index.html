@@ -63,7 +63,7 @@
             color: var(--text-color);
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px 40px 20px;
             background: var(--bg-color);
             font-weight: 300;
             font-size: 15px;
@@ -80,33 +80,40 @@
             to { opacity: 1; }
         }
         
-        /* Top accent line - THICKER with gradient */
+        /* Top accent line - THICKER with gradient and name */
         body::before {
-            content: '';
+            content: 'Ignacio Banares-Sanchez';
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 8px;
+            height: 45px;
             background: linear-gradient(to right, #3b82f6, #60a5fa, #3b82f6);
             z-index: 101;
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+            font-weight: 600;
+            font-size: 18px;
+            color: white;
+            letter-spacing: -0.02em;
         }
         
         /* Dark mode toggle button */
         .theme-toggle {
             position: fixed;
-            top: 20px;
+            top: 8px;
             right: 20px;
-            background: var(--badge-bg);
-            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             cursor: pointer;
             font-size: 18px;
-            color: var(--text-secondary);
+            color: white;
             transition: all 0.3s ease;
-            z-index: 100;
+            z-index: 102;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -114,13 +121,13 @@
         }
         
         .theme-toggle:hover {
-            background: var(--border-color);
+            background: rgba(255, 255, 255, 0.3);
         }
         
         .theme-toggle svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--text-secondary);
+            width: 16px;
+            height: 16px;
+            stroke: white;
             fill: none;
             stroke-width: 2;
             stroke-linecap: round;
@@ -128,7 +135,7 @@
         }
         
         .theme-toggle svg.moon-icon {
-            fill: var(--text-secondary);
+            fill: white;
         }
         
         .container {
@@ -141,7 +148,7 @@
         /* Left Column */
         .sidebar {
             position: sticky;
-            top: 40px;
+            top: 60px;
         }
         
         /* Profile image with shadow - NO HOVER EFFECT */
@@ -639,6 +646,16 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            body::before {
+                font-size: 14px;
+                padding-left: 15px;
+                height: 40px;
+            }
+            
+            body {
+                padding-top: 55px;
+            }
+            
             .container {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -664,7 +681,7 @@
             }
             
             .theme-toggle {
-                top: 10px;
+                top: 4px;
                 right: 10px;
             }
             
@@ -716,7 +733,6 @@
         <div class="sidebar">
             <img src="Profile.jpg" alt="Ignacio Banares-Sanchez" class="profile-img">
             
-            <h1>Ignacio Banares-Sanchez</h1>
             <div class="title">PhD Candidate in Economics</div>
             <div class="affiliation">London School of Economics</div>
             
