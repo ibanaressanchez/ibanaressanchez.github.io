@@ -197,22 +197,21 @@
         
         .teaching-eval-button {
             display: inline-block;
-            background: var(--link-color);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 6px;
+            background: var(--badge-bg);
+            color: var(--text-secondary);
+            padding: 6px 16px;
+            border-radius: 20px;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 400;
             letter-spacing: 0.3px;
             transition: all 0.2s ease;
-            margin-top: 20px;
+            border: 1px solid var(--border-color);
         }
         
         .teaching-eval-button:hover {
-            background: var(--cv-btn-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            background: var(--border-color);
+            color: var(--text-color);
         }
         
         .contact-info {
@@ -883,6 +882,12 @@
             <h2>Teaching</h2>
             
             <div class="teaching-section">
+                <div style="margin-bottom: 25px; text-align: center;">
+                    <a href="I_Banares_Sanchez_Teaching_Evaluations.pdf" class="teaching-eval-button" target="_blank">
+                        View Teaching Evaluations
+                    </a>
+                </div>
+                
                 <h3 style="font-size: 16px; font-weight: 500; margin-bottom: 15px; color: var(--heading-color);">Currently Teaching</h3>
                 <div class="teaching-item">
                     <span class="course-code">PP454</span>
@@ -920,12 +925,6 @@
                     <span class="course-code" style="min-width: 95px;">OPEN COURSE</span>
                     <span class="course-title">IZA/FCDO G²LM|LIC Online Development Economics</span>
                     <span class="course-level">(all students and professionals)</span>
-                </div>
-                
-                <div style="margin-top: 30px; text-align: center;">
-                    <a href="I_Banares_Sanchez_Teaching_Evaluations.pdf" class="teaching-eval-button" download>
-                        📄 Download Teaching Evaluations
-                    </a>
                 </div>
             </div>
         </div>
