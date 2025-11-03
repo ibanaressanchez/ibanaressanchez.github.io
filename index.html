@@ -29,8 +29,8 @@
             --badge-text: #4a5568;
             --paper-text: #7a7a7a;
             --paper-info: #5a5a5a;
-            --cv-btn-bg: #a8c4f0;
-            --cv-btn-hover: #2563eb;
+            --cv-btn-bg: #2563eb;
+            --cv-btn-hover: #1d4ed8;
             --profile-bg: #f0f0f0;
             --map-overlay-bg: rgba(255, 255, 255, 0.98);
         }
@@ -51,8 +51,8 @@
             --badge-text: #b0b0b0;
             --paper-text: #999;
             --paper-info: #aaa;
-            --cv-btn-bg: #4a6fa5;
-            --cv-btn-hover: #5a8af2;
+            --cv-btn-bg: #5a8af2;
+            --cv-btn-hover: #4a7de8;
             --profile-bg: #2a2a2a;
             --map-overlay-bg: rgba(26, 26, 26, 0.98);
         }
@@ -188,11 +188,13 @@
             font-size: 13px;
             font-weight: 400;
             letter-spacing: 0.5px;
-            transition: background 0.2s ease;
+            transition: all 0.2s ease;
         }
         
         .cv-button:hover {
             background: var(--cv-btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
         
         .teaching-eval-button {
