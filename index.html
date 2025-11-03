@@ -80,15 +80,15 @@
             to { opacity: 1; }
         }
         
-        /* Top accent line */
+        /* Top accent line - THICKER with gradient */
         body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: #3b82f6;
+            height: 8px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa, #3b82f6);
             z-index: 101;
         }
         
@@ -144,6 +144,7 @@
             top: 40px;
         }
         
+        /* Profile image with shadow - NO HOVER EFFECT */
         .profile-img {
             width: 240px;
             height: auto;
@@ -154,12 +155,6 @@
             object-position: center;
             background: var(--profile-bg);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-        }
-        
-        .profile-img:hover {
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-            transform: translateY(-4px);
         }
         
         h1 {
