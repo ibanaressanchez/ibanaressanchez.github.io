@@ -23,6 +23,7 @@
             --link-color: #2563eb;
             --border-color: #e8e8e8;
             --abstract-bg: #f5f7fa;
+            --presentations-bg: #fef9e7;
             --badge-bg: #f0f4f8;
             --badge-text: #4a5568;
             --paper-text: #7a7a7a;
@@ -43,6 +44,7 @@
             --link-color: #5a8af2;
             --border-color: #333;
             --abstract-bg: #252525;
+            --presentations-bg: #2a2515;
             --badge-bg: #2a2a2a;
             --badge-text: #b0b0b0;
             --paper-text: #999;
@@ -381,6 +383,25 @@
             animation: fadeInAbstract 0.4s ease-in-out forwards;
         }
         
+        .presentations {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: var(--presentations-bg);
+            border-left: 3px solid #d4af37;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--paper-info);
+            font-weight: 300;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+        
+        .presentations.show {
+            display: block;
+            animation: fadeInAbstract 0.4s ease-in-out forwards;
+        }
+        
         @keyframes fadeInAbstract {
             from { 
                 opacity: 0; 
@@ -559,7 +580,7 @@
                 page-break-after: always;
             }
             
-            .abstract {
+            .abstract, .presentations {
                 display: block !important;
                 opacity: 1 !important;
                 border-left: 2px solid #000;
@@ -720,14 +741,15 @@
                 </div>
                 <div class="coauthors">(with Yoshiki Wiskamp)</div>
                 <div class="paper-info">
-                    <strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop; (scheduled) Seventeenth Annual Conference on Urban and Regional Economics (CURE), STEG Annual Conference and Theme Workshops 2026 
-                </div>
-                <div class="paper-info">
                     <strong>Funding:</strong> IGC, STICERD
                 </div>
                 <div class="paper-links">
+                    <a href="#" class="presentations-toggle" data-target="presentations1">▸ Presentations</a>
                     <a href="#" class="abstract-toggle" data-target="abstract1">▸ Abstract</a>
                     <a href="https://ibanaressanchez.github.io/jmp.pdf" target="_blank">[paper]</a>
+                </div>
+                <div class="presentations" id="presentations1">
+                    <strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop; (scheduled) Seventeenth Annual Conference on Urban and Regional Economics (CURE), STEG Annual Conference and Theme Workshops 2026
                 </div>
                 <div class="abstract" id="abstract1">
                     Large rates of urbanisation come with externalities arising from density. These are particularly pronounced in the case of uncontrolled trash disposal. Low enforcement and fiscal capacity make local governments slow to respond to these challenges and leave space for unregulated private provision, which fails to address vast environmental and health damages. We develop a smartphone application and conduct surveys with households and informal waste collectors, to map the whole market and infrastructure for trash collection and disposal in Accra, Ghana. Leveraging experimental variation and our rich bespoke data, we estimate a structural model that captures the decisions of households, informal collectors, and disposal site operators. Counterfactual results show that halving fees at waste transfer stations correct unpriced externalities up to the social planner's choice. Welfare gains exceed policy implementation costs, but these are substantial, reaching 55% of the current budget for solid waste management. The construction of planned new infrastructure achieves lower effectiveness and requires higher costs than pricing policies. In settings with low fiscal and regulatory capacity, where direct provision, bans, or first-best pollution taxes are not feasible, limited second-best regulation can internalise environmental costs, providing a path for public service delivery through informal markets.
@@ -739,12 +761,13 @@
                     Ray of Hope? China and the Rise of Solar Energy
                 </div>
                 <div class="coauthors">(with Robin Burgess, David Laszlo, Pol Simpson, John Van Reenen, and Yifan Wang)</div>
-                <div class="paper-info">
-                    <strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (scheduled) ASSA Annual Meeting in Philadelphia
-                </div>
                 <div class="paper-links">
+                    <a href="#" class="presentations-toggle" data-target="presentations2">▸ Presentations</a>
                     <a href="#" class="abstract-toggle" data-target="abstract2">▸ Abstract</a>
                     <a href="#" class="disabled">[draft coming soon]</a>
+                </div>
+                <div class="presentations" id="presentations2">
+                    <strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (scheduled) ASSA Annual Meeting in Philadelphia
                 </div>
                 <div class="abstract" id="abstract2">
                     Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.
@@ -997,6 +1020,22 @@
                     } else {
                         this.textContent = '▸ Project description';
                     }
+                }
+            });
+        });
+        
+        // Presentations toggle
+        document.querySelectorAll('.presentations-toggle').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const presentations = document.getElementById(targetId);
+                presentations.classList.toggle('show');
+                
+                if (presentations.classList.contains('show')) {
+                    this.textContent = '▾ Presentations';
+                } else {
+                    this.textContent = '▸ Presentations';
                 }
             });
         });
