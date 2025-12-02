@@ -20,13 +20,13 @@
             --text-secondary: #666;
             --text-tertiary: #444;
             --heading-color: #2a2a2a;
-            --link-color: #0891b2;
+            --link-color: #0e7490;
             --border-color: #e8e8e8;
             --abstract-bg: #ecfeff;
             --presentations-bg: #fef9e7;
             --funders-bg: #fff5f0;
-            --badge-bg: #f0f4f8;
-            --badge-text: #4a5568;
+            --badge-bg: #e0f2f1;
+            --badge-text: #0e7490;
             --paper-text: #7a7a7a;
             --paper-info: #5a5a5a;
             --cv-btn-bg: #64748b;
@@ -47,8 +47,8 @@
             --abstract-bg: #0c4a6e;
             --presentations-bg: #2a2515;
             --funders-bg: #2a1f15;
-            --badge-bg: #2a2a2a;
-            --badge-text: #b0b0b0;
+            --badge-bg: #0d4b5e;
+            --badge-text: #a7f3d0;
             --paper-text: #999;
             --paper-info: #aaa;
             --cv-btn-bg: #64748b;
@@ -88,8 +88,8 @@
             left: 0;
             right: 0;
             height: 50px;
-            background: linear-gradient(to right, #0e7490, #2d9ba8, #0e7490);
-            box-shadow: 0 2px 8px rgba(8, 145, 178, 0.15);
+            background: linear-gradient(to right, #0a5868, #0e7490, #0a5868);
+            box-shadow: 0 2px 8px rgba(14, 116, 144, 0.15);
             z-index: 101;
             display: flex;
             align-items: center;
@@ -211,21 +211,24 @@
         
         .teaching-eval-button {
             display: inline-block;
-            background: var(--badge-bg);
-            color: var(--text-secondary);
-            padding: 6px 16px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 400;
+            font-size: 14px;
+            font-weight: 500;
             letter-spacing: 0.3px;
-            transition: all 0.2s ease;
-            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 8px rgba(14, 116, 144, 0.2);
         }
         
         .teaching-eval-button:hover {
-            background: var(--border-color);
-            color: var(--text-color);
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(14, 116, 144, 0.3);
+            color: white;
         }
         
         .contact-info {
@@ -404,7 +407,7 @@
             margin-top: 10px;
             padding: 15px;
             background: var(--abstract-bg);
-            border-left: 3px solid #0891b2;
+            border-left: 3px solid #0e7490;
             font-size: 13px;
             line-height: 1.7;
             color: var(--paper-info);
@@ -562,14 +565,21 @@
             display: inline-block;
             background: var(--badge-bg);
             color: var(--badge-text);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 400;
-            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-            letter-spacing: 0.5px;
-            min-width: 50px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: -apple-system, system-ui, sans-serif;
+            letter-spacing: 0.3px;
+            min-width: 55px;
             text-align: center;
+            border: 1.5px solid currentColor;
+            transition: all 0.2s ease;
+        }
+        
+        .course-code:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(14, 116, 144, 0.15);
         }
         
         .course-title {
@@ -607,7 +617,7 @@
         }
         
         .dot.active {
-            background: #0891b2;
+            background: #0e7490;
             transform: scale(1.5);
         }
         
