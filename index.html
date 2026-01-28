@@ -71,7 +71,7 @@
             gap: 80px;
         }
         
-        .sidebar { position: sticky; top: 80px; }
+        .sidebar { position: sticky; top: 80px; text-align: center; align-self: start; }
         
         .name { font-family: -apple-system, system-ui, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; letter-spacing: -0.3px; margin-bottom: 20px; color: var(--accent-blue); white-space: nowrap; }
         
@@ -87,8 +87,6 @@
         }
         
         .profile-img:hover { filter: grayscale(0%); }
-        
-        .sidebar { position: sticky; top: 80px; text-align: center; }
         
         .title, .affiliation { color: var(--text-secondary); font-size: 15px; margin-bottom: 4px; font-weight: 400; }
         .affiliation { margin-bottom: 24px; }
@@ -226,8 +224,8 @@
         
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; padding: 40px 24px; gap: 50px; }
-            .sidebar { position: static; text-align: center; }
-            .profile-img { margin: 0 auto 24px; width: 180px; height: 240px; }
+            .sidebar { position: static; }
+            .profile-img { margin: 0 auto 24px; width: 200px; height: 267px; }
             .social { justify-content: center; }
             .theme-toggle { top: 16px; right: 16px; }
             .teaching-item { flex-direction: column; align-items: flex-start; gap: 4px; }
