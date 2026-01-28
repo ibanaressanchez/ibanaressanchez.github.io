@@ -3,1144 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ignacio Banares-Sanchez - LSE Economics</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Ignacio Banares-Sanchez</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* Light mode colors (default) */
         :root {
-            --bg-color: #fff;
-            --text-color: #222;
+            --bg: #fafafa;
+            --text: #1a1a1a;
             --text-secondary: #666;
-            --text-tertiary: #444;
-            --heading-color: #2a2a2a;
-            --link-color: #0e7490;
-            --border-color: #e8e8e8;
-            --abstract-bg: #ecfeff;
-            --presentations-bg: #fef9e7;
-            --funders-bg: #fff5f0;
-            --badge-bg: #e0f2f1;
-            --badge-text: #0e7490;
-            --paper-text: #7a7a7a;
-            --paper-info: #5a5a5a;
-            --cv-btn-bg: #64748b;
-            --cv-btn-hover: #475569;
-            --profile-bg: #f0f0f0;
-            --map-overlay-bg: rgba(255, 255, 255, 0.98);
+            --accent-blue: #4a7c9b;
+            --accent-red: #b56b6b;
+            --accent-red-light: #f5e8e8;
+            --border: #e5e5e5;
+            --card-bg: #fff;
+            --abstract-bg: #f5f8fa;
+            --pres-bg: #faf5f5;
+            --funders-bg: #f5f8f5;
         }
         
-        /* Dark mode colors */
         [data-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --text-tertiary: #b0b0b0;
-            --heading-color: #f0f0f0;
-            --link-color: #5eead4;
-            --border-color: #333;
-            --abstract-bg: #0c4a6e;
-            --presentations-bg: #2a2515;
-            --funders-bg: #2a1f15;
-            --badge-bg: #0d4b5e;
-            --badge-text: #a7f3d0;
-            --paper-text: #999;
-            --paper-info: #aaa;
-            --cv-btn-bg: #64748b;
-            --cv-btn-hover: #475569;
-            --profile-bg: #2a2a2a;
-            --map-overlay-bg: rgba(26, 26, 26, 0.98);
+            --bg: #0a0a0a;
+            --text: #fafafa;
+            --text-secondary: #a3a3a3;
+            --accent-blue: #7ba8c4;
+            --accent-red: #d49a9a;
+            --accent-red-light: #2a1f1f;
+            --border: #262626;
+            --card-bg: #171717;
+            --abstract-bg: #151a1d;
+            --pres-bg: #1d1515;
+            --funders-bg: #151d15;
         }
         
         body {
             font-family: -apple-system, system-ui, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 65px 20px 40px 20px;
-            background: var(--bg-color);
-            font-weight: 300;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
             font-size: 15px;
-            letter-spacing: -0.01em;
+            font-weight: 300;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            transition: background 0.3s ease, color 0.3s ease;
-            animation: fadeIn 0.3s ease-in;
+            transition: background 0.3s, color 0.3s;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Top accent line - THICKER with gradient and name */
-        body::before {
-            content: 'Ignacio Banares-Sanchez';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background: linear-gradient(to right, #0a5868, #0e7490, #0a5868);
-            box-shadow: 0 2px 8px rgba(14, 116, 144, 0.15);
-            z-index: 101;
-            display: flex;
-            align-items: center;
-            padding-left: 40px;
-            font-weight: 600;
-            font-size: 18px;
-            color: white;
-            letter-spacing: -0.02em;
-        }
-        
-        /* Dark mode toggle button */
         .theme-toggle {
             position: fixed;
-            top: 9px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            top: 24px;
+            right: 24px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
             border-radius: 50%;
-            width: 32px;
-            height: 32px;
+            background: var(--card-bg);
             cursor: pointer;
-            font-size: 18px;
-            color: white;
-            transition: all 0.3s ease;
-            z-index: 102;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0;
+            z-index: 100;
+            transition: all 0.2s;
         }
         
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        .theme-toggle svg {
-            width: 16px;
-            height: 16px;
-            stroke: white;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-        
-        .theme-toggle svg.moon-icon {
-            fill: white;
-        }
+        .theme-toggle:hover { border-color: var(--accent-blue); }
+        .theme-toggle svg { width: 18px; height: 18px; stroke: var(--text); fill: none; stroke-width: 1.5; }
         
         .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 40px;
             display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 60px;
-            align-items: start;
+            grid-template-columns: 260px 1fr;
+            gap: 70px;
         }
         
-        /* Left Column */
-        .sidebar {
-            position: sticky;
-            top: 65px;
-        }
+        .sidebar { position: sticky; top: 80px; }
         
-        /* Profile image with shadow - NO HOVER EFFECT */
         .profile-img {
-            width: 240px;
-            height: auto;
-            aspect-ratio: 3/4;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            margin-top: 30px;
+            width: 180px;
+            height: 240px;
             object-fit: cover;
-            object-position: center;
-            background: var(--profile-bg);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            margin-bottom: 24px;
+            filter: grayscale(15%);
+            transition: filter 0.3s;
         }
         
-        h1 {
-            font-size: 21px;
-            margin-bottom: 6px;
-            font-weight: 400;
-            color: var(--heading-color);
-            letter-spacing: -0.03em;
-        }
+        .profile-img:hover { filter: grayscale(0%); }
         
-        .title {
-            color: var(--text-tertiary);
-            margin-bottom: 6px;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            font-size: 15px;
-        }
+        .name { font-size: 20px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 6px; color: var(--accent-blue); }
+        .title, .affiliation { color: var(--text-secondary); font-size: 14px; margin-bottom: 4px; font-weight: 400; }
+        .affiliation { margin-bottom: 20px; }
         
-        .affiliation {
-            color: var(--text-tertiary);
-            margin-bottom: 20px;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            font-size: 15px;
-        }
-        
-        .cv-button {
+        .cv-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border: 1px solid var(--text);
+            color: var(--text);
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 2px 8px rgba(14, 116, 144, 0.2);
-        }
-        
-        .cv-button:hover {
-            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(14, 116, 144, 0.3);
-            color: white;
-        }
-        
-        .teaching-eval-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 2px 8px rgba(14, 116, 144, 0.2);
-        }
-        
-        .teaching-eval-button:hover {
-            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(14, 116, 144, 0.3);
-            color: white;
-        }
-        
-        .contact-info {
-            margin-bottom: 20px;
-        }
-        
-        .contact-info a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-        
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        
-        .address {
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-        
-        /* Right Column */
-        .main-content {
-            padding-top: 30px;
-        }
-        
-        .intro {
-            margin-bottom: 30px;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-        
-        .intro a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-        
-        .intro a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Info Box Styles */
-        .info-box {
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .info-box-row {
-            margin-bottom: 10px;
-        }
-        
-        .info-box-row:last-child {
-            margin-bottom: 0;
-        }
-        
-        .info-box-label {
-            font-weight: 500;
-            color: var(--heading-color);
-            margin-bottom: 4px;
-            font-size: 13px;
-        }
-        
-        .info-box-content {
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-        
-        .info-box-content a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-        
-        .info-box-content a:hover {
-            text-decoration: underline;
-        }
-        
-        h2 {
-            font-size: 19px;
-            margin-bottom: 20px;
-            margin-top: 35px;
-            font-weight: 500;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            color: var(--heading-color);
-        }
-        
-        h2:first-child {
-            margin-top: 0;
-        }
-        
-        .paper {
-            margin-bottom: 22px;
-        }
-        
-        .paper-title {
-            font-weight: 500;
-            margin-bottom: 3px;
-            color: var(--heading-color);
-            font-size: 15px;
-        }
-        
-        .jmp-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 8px;
             font-size: 12px;
             font-weight: 500;
-            margin-left: 8px;
-            letter-spacing: 0.3px;
-            font-style: normal;
-            box-shadow: 0 2px 8px rgba(14, 116, 144, 0.2);
-            animation: pulse 2s ease-in-out infinite;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+            margin-bottom: 20px;
         }
         
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.9;
-            }
-        }
+        .cv-btn:hover { background: var(--text); color: var(--bg); }
         
-        .coauthors {
-            color: var(--paper-text);
-            margin-bottom: 3px;
-            font-size: 14px;
-            font-weight: 300;
-        }
-        
-        .paper-info {
-            color: var(--paper-text);
-            margin-bottom: 2px;
-            line-height: 1.6;
-            font-size: 14px;
-            font-weight: 400;
-        }
-        
-        .paper-info strong {
-            font-weight: 500;
-            color: var(--paper-info);
-        }
-        
-        .paper-links {
-            margin-top: 6px;
-        }
-        
-        .paper-links a {
-            color: var(--link-color);
-            text-decoration: none;
-            margin-right: 15px;
-            font-size: 13px;
-            font-weight: 400;
-        }
-        
-        .paper-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .paper-links a.disabled {
-            color: #999;
-            cursor: default;
-            text-decoration: none;
-        }
-        
-        .paper-links a.disabled:hover {
-            text-decoration: none;
-        }
-        
-        .abstract {
-            display: none;
-            margin-top: 10px;
-            padding: 15px;
-            background: var(--abstract-bg);
-            border-left: 3px solid #0e7490;
-            font-size: 13px;
-            line-height: 1.7;
-            color: var(--paper-info);
-            font-weight: 300;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-        }
-        
-        .abstract.show {
+        .contact a {
             display: block;
-            animation: fadeInAbstract 0.4s ease-in-out forwards;
-        }
-        
-        .presentations {
-            display: none;
-            margin-top: 10px;
-            padding: 15px;
-            background: var(--presentations-bg);
-            border-left: 3px solid #d4af37;
+            color: var(--accent-red);
+            text-decoration: none;
             font-size: 13px;
-            line-height: 1.7;
-            color: var(--paper-info);
-            font-weight: 300;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            margin-bottom: 6px;
         }
         
-        .presentations.show {
-            display: block;
-            animation: fadeInAbstract 0.4s ease-in-out forwards;
-        }
+        .contact a:hover { opacity: 0.7; }
         
-        .funders {
-            display: none;
-            margin-top: 10px;
-            padding: 15px;
-            background: var(--funders-bg);
-            border-left: 3px solid #f97316;
-            font-size: 13px;
-            line-height: 1.7;
-            color: var(--paper-info);
-            font-weight: 300;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-        }
+        .address { color: var(--text-secondary); font-size: 12px; line-height: 1.6; margin-top: 12px; }
         
-        .funders.show {
-            display: block;
-            animation: fadeInAbstract 0.4s ease-in-out forwards;
-        }
+        .social { display: flex; gap: 14px; margin-top: 20px; }
+        .social a { color: var(--text-secondary); transition: color 0.2s; display: flex; align-items: center; }
+        .social a:hover { color: var(--accent-blue); }
+        .social svg { width: 18px; height: 18px; fill: currentColor; }
+        .social .lse { font-size: 9px; font-weight: 700; background: var(--text-secondary); color: var(--bg); padding: 4px 5px; border-radius: 2px; text-decoration: none; }
+        .social .lse:hover { background: var(--accent-blue); }
         
-        @keyframes fadeInAbstract {
-            from { 
-                opacity: 0; 
-                transform: translateY(-10px);
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0);
-            }
-        }
-        
-        /* Map/App Viewer Styles */
-        .map-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            animation: fadeIn 0.3s ease-in;
-        }
-        
-        .map-overlay.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .map-container {
-            background: var(--map-overlay-bg);
-            border-radius: 8px;
-            width: 90%;
-            max-width: 1200px;
-            height: 85vh;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .map-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .map-title {
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--heading-color);
-        }
-        
-        .map-close {
-            background: transparent;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--text-secondary);
-            transition: color 0.2s ease;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .map-close:hover {
-            color: var(--text-color);
-        }
-        
-        .map-content {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-        }
-        
-        .map-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Teaching Section */
-        .teaching-section {
-            margin-top: 20px;
-        }
-        
-        .teaching-item {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-        }
-        
-        .course-code {
-            display: inline-block;
-            background: var(--badge-bg);
-            color: var(--badge-text);
-            padding: 4px 12px;
-            border-radius: 6px;
+        .main h2 {
             font-size: 13px;
             font-weight: 600;
-            font-family: -apple-system, system-ui, sans-serif;
-            letter-spacing: 0.3px;
-            min-width: 55px;
-            text-align: center;
-            border: 1.5px solid currentColor;
-            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
         }
         
-        .course-code:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 6px rgba(14, 116, 144, 0.15);
-        }
+        .main h2:first-child { margin-top: 0; }
         
-        .course-title {
-            color: var(--text-secondary);
+        .intro { font-size: 14px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px; font-weight: 300; }
+        .intro strong { color: var(--text); font-weight: 400; }
+        .intro a { color: var(--accent-red); text-decoration: none; }
+        .intro a:hover { text-decoration: underline; }
+        
+        .jm-notice {
+            padding: 14px 18px;
+            background: var(--card-bg);
+            border-left: 2px solid var(--accent-blue);
             font-size: 14px;
-            flex: 1;
+            font-weight: 400;
+            margin-bottom: 24px;
         }
         
-        .course-level {
-            color: var(--text-secondary);
+        .refs { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 13px; margin-bottom: 20px; }
+        .refs-label { color: var(--text-secondary); }
+        .refs a { color: var(--text); text-decoration: none; }
+        .refs a:hover { color: var(--accent-red); }
+        
+        .paper { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+        .paper:last-child { border-bottom: none; }
+        
+        .paper-title { font-size: 15px; font-weight: 400; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--accent-red); }
+        
+        .jmp-tag {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            padding: 4px 10px;
+            background: var(--accent-red-light);
+            color: var(--accent-red);
+            border-radius: 2px;
+        }
+        
+        .coauthors { color: var(--text-secondary); font-size: 13px; margin-bottom: 4px; font-style: italic; font-weight: 300; }
+        .paper-info { color: var(--text-secondary); font-size: 13px; margin-bottom: 8px; }
+        
+        .paper-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+        .paper-links a { color: var(--text-secondary); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+        .paper-links a:hover { color: var(--accent-red); }
+        .paper-links a.disabled { color: #999; cursor: default; }
+        
+        .expandable {
+            display: none;
+            margin-top: 12px;
+            padding: 16px;
             font-size: 13px;
-            font-style: italic;
-            opacity: 0.8;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            border-left: 2px solid var(--accent-blue);
+            font-weight: 300;
         }
         
-        /* Section indicator dots */
-        .section-dots {
-            position: fixed;
-            right: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 50;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .expandable.abstract { background: var(--abstract-bg); }
+        .expandable.presentations { background: var(--abstract-bg); }
+        .expandable.funders { background: var(--abstract-bg); }
+        .expandable.show { display: block; animation: fadeIn 0.3s ease; }
+        .expandable strong { color: var(--text); font-weight: 500; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .teaching-section h3 { font-size: 13px; font-weight: 500; margin: 20px 0 12px; color: var(--text); }
+        .teaching-section h3:first-child { margin-top: 0; }
+        
+        .eval-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--accent-red-light);
+            border: none;
+            color: var(--accent-red);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.2s;
+            border-radius: 2px;
         }
         
-        .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+        .eval-btn:hover { background: var(--accent-red); color: white; }
         
-        .dot.active {
-            background: #0e7490;
-            transform: scale(1.5);
-        }
+        .teaching-item { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; font-size: 13px; }
+        .course-code { font-family: 'SF Mono', Monaco, monospace; font-size: 11px; color: var(--accent-blue); min-width: 65px; }
+        .course-title { color: var(--text); flex: 1; font-weight: 300; }
+        .course-level { color: var(--text-secondary); font-size: 12px; font-style: italic; }
         
-        /* Print styles */
-        @media print {
-            body::before,
-            .theme-toggle,
-            .section-dots,
-            .footer {
-                display: none;
-            }
-            
-            body {
-                padding: 20px;
-                animation: none;
-            }
-            
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                position: static;
-                page-break-after: always;
-            }
-            
-            .abstract, .presentations, .funders {
-                display: block !important;
-                opacity: 1 !important;
-                border-left: 2px solid #000;
-            }
-            
-            a {
-                color: #000;
-                text-decoration: underline;
-            }
-        }
-        
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            body::before {
-                font-size: 14px;
-                padding-left: 15px;
-                height: 45px;
-            }
-            
-            body {
-                padding-top: 60px;
-            }
-            
-            .container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .sidebar {
-                position: static;
-                text-align: center;
-            }
-            
-            .profile-img {
-                margin: 0 auto 20px;
-            }
-            
-            .social-sidebar {
-                justify-content: center !important;
-            }
-            
-            .teaching-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            
-            .theme-toggle {
-                top: 6px;
-                right: 10px;
-            }
-            
-            .section-dots {
-                display: none;
-            }
-            
-            .map-container {
-                width: 95%;
-                height: 90vh;
-                padding: 15px;
-            }
+            .container { grid-template-columns: 1fr; padding: 40px 20px; gap: 40px; }
+            .sidebar { position: static; text-align: center; }
+            .profile-img { margin: 0 auto 20px; }
+            .social { justify-content: center; }
+            .theme-toggle { top: 16px; right: 16px; }
+            .teaching-item { flex-direction: column; align-items: flex-start; gap: 4px; }
         }
     </style>
 </head>
 <body>
     <button class="theme-toggle" onclick="toggleTheme()">
-        <svg viewBox="0 0 24 24" class="moon-icon">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-        <svg viewBox="0 0 24 24" class="sun-icon" style="display: none;">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
+        <svg viewBox="0 0 24 24" class="moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg viewBox="0 0 24 24" class="sun" style="display:none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
     </button>
-    
-    <!-- App Viewer Overlay -->
-    <div class="map-overlay" id="appOverlay">
-        <div class="map-container">
-            <div class="map-header">
-                <div class="map-title">Data Collection: Bokoollect App</div>
-                <button class="map-close" onclick="closeAppViewer()">×</button>
-            </div>
-            <div class="map-content">
-                <iframe class="map-iframe" src="app-showcase.html"></iframe>
-            </div>
-        </div>
-    </div>
-    
+
     <div class="container">
-        <!-- Left Column -->
         <div class="sidebar">
-            <img src="Profile.jpg" alt="Ignacio Banares-Sanchez" class="profile-img">
-            
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=520&fit=crop&crop=face" alt="Profile" class="profile-img">
+            <div class="name">Ignacio Banares-Sanchez</div>
             <div class="title">PhD Candidate in Economics</div>
             <div class="affiliation">London School of Economics</div>
-            
-            <div style="margin: 15px 0;">
-                <a href="https://ibanaressanchez.github.io/Banares_Sanchez_CV.pdf" class="cv-button">Download CV</a>
-            </div>
-            
-            <div class="contact-info">
+            <a href="#" class="cv-btn">DOWNLOAD CV</a>
+            <div class="contact">
                 <a href="mailto:i.banares-sanchez@lse.ac.uk">i.banares-sanchez@lse.ac.uk</a>
             </div>
-            
-            <div class="address">
-                32 Lincoln's Inn Fields<br>
-                London WC2A 3PH, UK
-            </div>
-            
-            <div class="social-sidebar" style="margin-top: 30px; display: flex; gap: 15px; align-items: center;">
-                <a href="https://www.lse.ac.uk/people/ignacio-banares-sanchez" title="LSE Profile" target="_blank" style="color: white; background: var(--text-secondary); transition: opacity 0.2s ease; text-decoration: none; font-weight: 600; font-size: 10px; padding: 0; border-radius: 2px; letter-spacing: -0.03em; font-family: Arial, sans-serif; line-height: 1; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px;">
-                    LSE
-                </a>
-                <a href="https://scholar.google.com/citations?user=Wyj_C4oAAAAJ&hl=en" title="Google Scholar" target="_blank" style="color: var(--text-secondary); transition: opacity 0.2s ease; display: inline-flex; align-items: center;">
-                    <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: currentColor; display: block;">
-                        <path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/>
-                    </svg>
-                </a>
-                <a href="https://bsky.app/profile/ibanares-sanchez.bsky.social" title="Bluesky" target="_blank" style="color: var(--text-secondary); transition: opacity 0.2s ease; display: inline-flex; align-items: center;">
-                    <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: currentColor; display: block;">
-                        <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/>
-                    </svg>
-                </a>
+            <div class="address">32 Lincoln's Inn Fields<br>London WC2A 3PH, UK</div>
+            <div class="social">
+                <a href="#" class="lse" title="LSE Profile">LSE</a>
+                <a href="#" title="Google Scholar"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg></a>
+                <a href="#" title="Bluesky"><svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg></a>
             </div>
         </div>
-        
-        <!-- Right Column -->
-        <div class="main-content">
-            <div class="intro" id="intro-section">
-                I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE). I am an applied environmental economist, working on environmental challenges faced by cities in low- and middle-income countries. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources. I am affiliated with <strong><a href="https://sticerd.lse.ac.uk/_new/our-work/economics-of-environment-and-energy/people/" target="_blank">STICERD's Economics of Environment and Energy (EEE)</a></strong> programme and I am an <strong><a href="https://cep.lse.ac.uk/_new/people/person.asp?id=11231" target="_blank">Associate at CEP's Green Transition</a></strong> programme.
-                <br><br>
-                <strong>I am on the 2025-26 academic job market.</strong> You can find my CV <a href="https://ibanaressanchez.github.io/Banares_Sanchez_CV.pdf">here</a>.
+
+        <div class="main">
+            <h2>About</h2>
+            <p class="intro">
+                I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE). I am an applied environmental economist, working on environmental challenges faced by cities in low- and middle-income countries. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources. I am affiliated with <strong><a href="#">STICERD's Economics of Environment and Energy (EEE)</a></strong> programme and I am an <strong><a href="#">Associate at CEP's Green Transition</a></strong> programme.
+            </p>
+            <div class="jm-notice">I am on the 2025-26 academic job market. <a href="#" style="color: var(--accent-red);">View my CV here.</a></div>
+            <div class="refs">
+                <span class="refs-label">Placement Director</span>
+                <span><a href="#">Matthias Doepke</a></span>
+                <span class="refs-label">References</span>
+                <span><a href="#">Robin Burgess</a>, <a href="#">Oriana Bandiera</a>, <a href="#">Gharad Bryan</a>, <a href="#">Swati Dhingra</a></span>
             </div>
-            
-            <!-- Placement Director and References -->
-            <div class="info-box">
-                <div class="info-box-row">
-                    <div class="info-box-label">Placement Director:</div>
-                    <div class="info-box-content">
-                        <a href="mailto:m.doepke@lse.ac.uk">Matthias Doepke</a>
-                    </div>
-                </div>
-                <div class="info-box-row">
-                    <div class="info-box-label">References:</div>
-                    <div class="info-box-content">
-                        <a href="mailto:r.burgess@lse.ac.uk">Robin Burgess</a>, 
-                        <a href="mailto:o.bandiera@lse.ac.uk">Oriana Bandiera</a>, 
-                        <a href="mailto:g.t.bryan@lse.ac.uk">Gharad Bryan</a>, 
-                        <a href="mailto:s.dhingra@lse.ac.uk">Swati Dhingra</a>
-                    </div>
-                </div>
-            </div>
-            
+
             <h2>Working Papers</h2>
             
             <div class="paper">
-                <div class="paper-title">
-                    Trading Trash on Tricycles
-                    <a href="https://ibanaressanchez.github.io/jmp.pdf" target="_blank" class="jmp-badge" style="text-decoration: none;">JOB MARKET PAPER</a>
-                </div>
-                <div class="coauthors">(with Yoshiki Wiskamp)</div>
+                <div class="paper-title">Trading Trash on Tricycles <span class="jmp-tag">JOB MARKET PAPER</span></div>
+                <div class="coauthors">with Yoshiki Wiskamp</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract1">▸ Abstract</a>
-                    <a href="https://ibanaressanchez.github.io/jmp.pdf" target="_blank">[paper]</a>
-                    <a href="#" class="presentations-toggle" data-target="presentations1">▸ Presentations</a>
-                    <a href="#" class="funders-toggle" data-target="funders1">▸ Funders and Partners</a>
+                    <a href="#" onclick="toggle('abs1'); return false;">▸ Abstract</a>
+                    <a href="#">[paper]</a>
+                    <a href="#" onclick="toggle('pres1'); return false;">▸ Presentations</a>
+                    <a href="#" onclick="toggle('fund1'); return false;">▸ Funders and Partners</a>
                 </div>
-                <div class="abstract" id="abstract1">
-                    Urbanisation generates powerful agglomeration benefits but also severe congestion externalities that require regulation and public goods provision. In developing megacities, governments lack the fiscal and enforcement capacity to implement textbook solutions. In their absence, unregulated private provision emerges across sectors such as waste, sanitation, water, and transport, leaving externalities largely unaddressed. What can economics offer cities that cannot implement textbook policies? We study whether limited, feasible regulation can leverage informal markets to deliver public services at scale, focusing on trash collection in Accra, Ghana. Using novel data, we document an imperfect but functioning market: households pay informal tricycle collectors for door-to-door collection, yet prices remain too high for universal access, and final disposal occurs largely at illegal dumpsites. We identify a single feasible policy lever—subsidies for formal, environmentally controlled disposal—and evaluate it using a new structural model of urban waste collection and disposal. To estimate the model, we combine survey experiments to elicit household demand, a custom app to record transactions and tricycle routes, and a field experiment randomising dumping fees. Counterfactual results show that a modest subsidy achieves roughly 80% of the efficient outcome, substantially reducing environmental damages while generating larger welfare gains at lower cost than planned infrastructure expansion. These findings demonstrate that even in very low-capacity environments, limited price-based regulation can align informal private initiative with social objectives.
-                </div>
-                <div class="presentations" id="presentations1">
-                    <strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop, Seventeenth Annual Conference on Urban and Regional Economics (CURE), Guest Lecture at Kyiv School of Economics' Masters program in Urban Studies and Postwar Reconstruction; (scheduled) STEG Annual Conference and Theme Workshops 2026
-                </div>
-                <div class="funders" id="funders1">
-                    <strong>Funders and Partners:</strong> International Growth Centre (IGC), STICERD, Innovations for Poverty Action (IPA), DataPlas Ghana
-                </div>
+                <div class="expandable abstract" id="abs1">Urbanisation generates powerful agglomeration benefits but also severe congestion externalities that require regulation and public goods provision. In developing megacities, governments lack the fiscal and enforcement capacity to implement textbook solutions. In their absence, unregulated private provision emerges across sectors such as waste, sanitation, water, and transport, leaving externalities largely unaddressed. What can economics offer cities that cannot implement textbook policies? We study whether limited, feasible regulation can leverage informal markets to deliver public services at scale, focusing on trash collection in Accra, Ghana. Using novel data, we document an imperfect but functioning market: households pay informal tricycle collectors for door-to-door collection, yet prices remain too high for universal access, and final disposal occurs largely at illegal dumpsites. We identify a single feasible policy lever—subsidies for formal, environmentally controlled disposal—and evaluate it using a new structural model of urban waste collection and disposal. To estimate the model, we combine survey experiments to elicit household demand, a custom app to record transactions and tricycle routes, and a field experiment randomising dumping fees. Counterfactual results show that a modest subsidy achieves roughly 80% of the efficient outcome, substantially reducing environmental damages while generating larger welfare gains at lower cost than planned infrastructure expansion. These findings demonstrate that even in very low-capacity environments, limited price-based regulation can align informal private initiative with social objectives.</div>
+                <div class="expandable presentations" id="pres1"><strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop, Seventeenth Annual Conference on Urban and Regional Economics (CURE), Guest Lecture at Kyiv School of Economics' Masters program in Urban Studies and Postwar Reconstruction; (scheduled) STEG Annual Conference and Theme Workshops 2026</div>
+                <div class="expandable funders" id="fund1"><strong>Funders and Partners:</strong> International Growth Centre (IGC), STICERD, Innovations for Poverty Action (IPA), DataPlas Ghana</div>
             </div>
-            
+
             <div class="paper">
-                <div class="paper-title">
-                    Ray of Hope? China and the Rise of Solar Energy
-                </div>
-                <div class="coauthors">(with Robin Burgess, David Laszlo, Pol Simpson, John Van Reenen, and Yifan Wang)</div>
+                <div class="paper-title">Ray of Hope? China and the Rise of Solar Energy</div>
+                <div class="coauthors">with Robin Burgess, David Laszlo, Pol Simpson, John Van Reenen, and Yifan Wang</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract2">▸ Abstract</a>
-                    <a href="https://ibanaressanchez.github.io/solar.pdf" target="_blank">[paper]</a>
-                    <a href="#" class="presentations-toggle" data-target="presentations2">▸ Presentations</a>
+                    <a href="#" onclick="toggle('abs2'); return false;">▸ Abstract</a>
+                    <a href="#">[paper]</a>
+                    <a href="#" onclick="toggle('pres2'); return false;">▸ Presentations</a>
                 </div>
-                <div class="abstract" id="abstract2">
-                    Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.
-                </div>
-                <div class="presentations" id="presentations2">
-                    <strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (scheduled) ASSA Annual Meeting in Philadelphia
-                </div>
+                <div class="expandable abstract" id="abs2">Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.</div>
+                <div class="expandable presentations" id="pres2"><strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (scheduled) ASSA Annual Meeting in Philadelphia</div>
             </div>
-            
+
             <div class="paper">
                 <div class="paper-title">Channeling Density: Sewerage Investments in 19th-Century Paris</div>
-                <div class="coauthors">(with Yoshiki Wiskamp)</div>
+                <div class="coauthors">with Yoshiki Wiskamp</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract3">▸ Abstract</a>
+                    <a href="#" onclick="toggle('abs3'); return false;">▸ Abstract</a>
                     <a href="#" class="disabled">[slides available upon request]</a>
                 </div>
-                <div class="abstract" id="abstract3">
-                    The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. Sanitation investments might therefore be essential to allow for people to tolerate density and for positive agglomeration externalities to emerge; thereby turning population density from a downside into an upside. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century. We first present event studies examining changes in firm density, residential density, land values, and disease incidences. We then leverage an urban model to estimate the impact of sewers on the strength of agglomeration and city structure. Through counterfactual analyses we examine the impact, cost-benefit, and alternative placements of sewers. Finally, we asses the extent to which sewers displaced pollution to the Parisian suburbs, affecting their long-term development.
-                </div>
+                <div class="expandable abstract" id="abs3">The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. Sanitation investments might therefore be essential to allow for people to tolerate density and for positive agglomeration externalities to emerge; thereby turning population density from a downside into an upside. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century. We first present event studies examining changes in firm density, residential density, land values, and disease incidences. We then leverage an urban model to estimate the impact of sewers on the strength of agglomeration and city structure. Through counterfactual analyses we examine the impact, cost-benefit, and alternative placements of sewers. Finally, we asses the extent to which sewers displaced pollution to the Parisian suburbs, affecting their long-term development.</div>
             </div>
-            
+
             <h2>Work in Progress</h2>
             
             <div class="paper">
                 <div class="paper-title">The Miracle on the Han: Urbanisation, Industrial Policy, and Rural Development</div>
-                <div class="coauthors">(with Oriana Bandiera, Robin Burgess, Tim Dobermann, Jay Euijung Lee, Jeongkyun Won, and Hyunjoo Yang)</div>
+                <div class="coauthors">with Oriana Bandiera, Robin Burgess, Tim Dobermann, Jay Euijung Lee, Jeongkyun Won, and Hyunjoo Yang</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract6">▸ Abstract</a>
-                    <a href="#" class="funders-toggle" data-target="funders3">▸ Funders and Partners</a>
+                    <a href="#" onclick="toggle('abs4'); return false;">▸ Abstract</a>
+                    <a href="#" onclick="toggle('fund4'); return false;">▸ Funders and Partners</a>
                 </div>
-                <div class="abstract" id="abstract6">
-                    Economic growth involves the spatial and sectoral reallocation of people and firms. How much should governments plan this reallocation, and what makes spatial planning successful? South Korea rose from poverty to become a leading industrialised economy today in a remarkably condensed timeline. The "Miracle on the Han" involved rapid urbanisation, industrial modernisation, and rural productivity growth, alongside aggressive spatial planning policies in the form of regional industrial parks, highway construction, and rural infrastructure development. We are creating a new historical database tracking all facets of South Korea's structural transformation from the mid- to late-20th century. Utilising newly digitised historical micro data on output, firms, employment, population, urbanisation, and infrastructure, we study the policies and channels through which the country achieved its remarkable transformation.
-                </div>
-                <div class="funders" id="funders3">
-                    <strong>Funders and Partners:</strong> Structural Transformation and Economic Growth (STEG), Economic and Social Research Council (ESRC)
-                </div>
+                <div class="expandable abstract" id="abs4">Economic growth involves the spatial and sectoral reallocation of people and firms. How much should governments plan this reallocation, and what makes spatial planning successful? South Korea rose from poverty to become a leading industrialised economy today in a remarkably condensed timeline. The "Miracle on the Han" involved rapid urbanisation, industrial modernisation, and rural productivity growth, alongside aggressive spatial planning policies in the form of regional industrial parks, highway construction, and rural infrastructure development. We are creating a new historical database tracking all facets of South Korea's structural transformation from the mid- to late-20th century. Utilising newly digitised historical micro data on output, firms, employment, population, urbanisation, and infrastructure, we study the policies and channels through which the country achieved its remarkable transformation.</div>
+                <div class="expandable funders" id="fund4"><strong>Funders and Partners:</strong> Structural Transformation and Economic Growth (STEG), Economic and Social Research Council (ESRC)</div>
             </div>
-            
+
             <div class="paper">
                 <div class="paper-title">Electricity Supply and Firm Agglomeration in Ghana</div>
-                <div class="coauthors">(with Tim Dobermann and Niclas Moneke)</div>
+                <div class="coauthors">with Tim Dobermann and Niclas Moneke</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract4">▸ Abstract</a>
-                    <a href="#" class="funders-toggle" data-target="funders4">▸ Funders and Partners</a>
+                    <a href="#" onclick="toggle('abs5'); return false;">▸ Abstract</a>
+                    <a href="#" onclick="toggle('fund5'); return false;">▸ Funders and Partners</a>
                 </div>
-                <div class="abstract" id="abstract4">
-                    Electricity is a crucial input for modern production, yet its quality across time and space varies substantially. In this project, we ask how the endogenous allocation of electricity affects firm productivity and agglomeration. We build a unique spatial dataset combining administrative data on electricity consumption, engineering records on electricity outages, and a detailed firm panel from a national census. With this data in hand, we use a machine learning algorithm to predict the spatial allocation of outages following exogenous supply shocks. Using this as an instrument, we obtain reduced-form causal estimates of how firms respond to outages. Lastly, leveraging a dynamic spatial general equilibrium model, we compare the current equilibrium observed in the data to counterfactuals where outages are (i) reduced and, (ii) optimally adjusted to maximise welfare, taking into account the spatial misallocation in firm entry and growth across the country.
-                </div>
-                <div class="funders" id="funders4">
-                    <strong>Funders and Partners:</strong> International Growth Centre (IGC)
-                </div>
+                <div class="expandable abstract" id="abs5">Electricity is a crucial input for modern production, yet its quality across time and space varies substantially. In this project, we ask how the endogenous allocation of electricity affects firm productivity and agglomeration. We build a unique spatial dataset combining administrative data on electricity consumption, engineering records on electricity outages, and a detailed firm panel from a national census. With this data in hand, we use a machine learning algorithm to predict the spatial allocation of outages following exogenous supply shocks. Using this as an instrument, we obtain reduced-form causal estimates of how firms respond to outages. Lastly, leveraging a dynamic spatial general equilibrium model, we compare the current equilibrium observed in the data to counterfactuals where outages are (i) reduced and, (ii) optimally adjusted to maximise welfare, taking into account the spatial misallocation in firm entry and growth across the country.</div>
+                <div class="expandable funders" id="fund5"><strong>Funders and Partners:</strong> International Growth Centre (IGC)</div>
             </div>
-            
+
             <div class="paper">
                 <div class="paper-title">Water, Sanitation, and Climate Resilience in the Tropics</div>
-                <div class="coauthors">(with Juliana Helo)</div>
+                <div class="coauthors">with Juliana Helo</div>
                 <div class="paper-links">
-                    <a href="#" class="abstract-toggle" data-target="abstract5">▸ Abstract</a>
-                    <a href="#" class="funders-toggle" data-target="funders5">▸ Funders and Partners</a>
+                    <a href="#" onclick="toggle('abs6'); return false;">▸ Abstract</a>
+                    <a href="#" onclick="toggle('fund6'); return false;">▸ Funders and Partners</a>
                 </div>
-                <div class="abstract" id="abstract5">
-                    Using geolocated information on over 400,000 water points and a variety of health surveys across Sub-Saharan Africa, we document that access to functioning water and improved sanitation increases villages' resilience to high temperatures, reducing mortality and disease incidence. Leveraging machine learning techniques and rich information on the characteristics of water points, we identify that whether maintenance is private, communal, or institutional is a key determinant for a water point functional status. We design an intervention to improve the maintenance of water points when its responsibility is assigned at the community-level.
-                </div>
-                <div class="funders" id="funders5">
-                    <strong>Funders and Partners:</strong> International Growth Centre (IGC)
-                </div>
+                <div class="expandable abstract" id="abs6">Using geolocated information on over 400,000 water points and a variety of health surveys across Sub-Saharan Africa, we document that access to functioning water and improved sanitation increases villages' resilience to high temperatures, reducing mortality and disease incidence. Leveraging machine learning techniques and rich information on the characteristics of water points, we identify that whether maintenance is private, communal, or institutional is a key determinant for a water point functional status. We design an intervention to improve the maintenance of water points when its responsibility is assigned at the community-level.</div>
+                <div class="expandable funders" id="fund6"><strong>Funders and Partners:</strong> International Growth Centre (IGC)</div>
             </div>
-            
+
             <h2>Policy Work</h2>
             
             <div class="paper">
                 <div class="paper-title">Water and Sanitation Provision in Developing Cities</div>
-                <div class="coauthors">(with Mikey Blake, Victoria Delbridge, Ed Glaeser, and Yoshiki Wiskamp)</div>
-                <div class="paper-info">
-                    IGC Policy Paper
-                </div>
+                <div class="coauthors">with Mikey Blake, Victoria Delbridge, Ed Glaeser, and Yoshiki Wiskamp</div>
+                <div class="paper-info">IGC Policy Paper</div>
             </div>
-            
+
             <h2>Teaching</h2>
             
             <div class="teaching-section">
-                <div style="margin-bottom: 25px; text-align: center;">
-                    <a href="I_Banares_Sanchez_Teaching_Evaluations.pdf" class="teaching-eval-button" target="_blank">
-                        View Teaching Evaluations
-                    </a>
-                </div>
+                <a href="#" class="eval-btn">View Teaching Evaluations</a>
                 
-                <h3 style="font-size: 15px; font-weight: 500; margin-bottom: 15px; color: var(--heading-color);">Currently Teaching</h3>
+                <h3>Currently Teaching</h3>
                 <div class="teaching-item">
                     <span class="course-code">PP454</span>
                     <span class="course-title">Development Economics for MPA students</span>
-                    <span class="course-level">(graduate)</span>
+                    <span class="course-level">graduate</span>
                 </div>
                 <div class="teaching-item">
                     <span class="course-code">EC330</span>
                     <span class="course-title">Environmental Economics</span>
-                    <span class="course-level">(undergraduate)</span>
+                    <span class="course-level">undergraduate</span>
                 </div>
                 <div class="teaching-item">
-                    <span class="course-code" style="min-width: 80px;">MATH CAMP</span>
+                    <span class="course-code">MATH CAMP</span>
                     <span class="course-title">Mathematics and Statistics for MPP students</span>
-                    <span class="course-level">(graduate)</span>
+                    <span class="course-level">graduate</span>
                 </div>
                 
-                <h3 style="font-size: 15px; font-weight: 500; margin-top: 25px; margin-bottom: 15px; color: var(--heading-color);">Previous Teaching</h3>
+                <h3>Previous Teaching</h3>
                 <div class="teaching-item">
                     <span class="course-code">EC307</span>
                     <span class="course-title">Development Economics</span>
-                    <span class="course-level">(undergraduate)</span>
+                    <span class="course-level">undergraduate</span>
                 </div>
                 <div class="teaching-item">
                     <span class="course-code">EC2C3</span>
                     <span class="course-title">Econometrics I</span>
-                    <span class="course-level">(undergraduate)</span>
+                    <span class="course-level">undergraduate</span>
                 </div>
                 <div class="teaching-item">
                     <span class="course-code">EC1A5</span>
                     <span class="course-title">Microeconomics I</span>
-                    <span class="course-level">(undergraduate)</span>
+                    <span class="course-level">undergraduate</span>
                 </div>
                 <div class="teaching-item">
-                    <span class="course-code" style="min-width: 95px;">OPEN COURSE</span>
+                    <span class="course-code">OPEN</span>
                     <span class="course-title">IZA/FCDO G²LM|LIC Online Development Economics</span>
-                    <span class="course-level">(all students and professionals)</span>
+                    <span class="course-level">all students and professionals</span>
                 </div>
             </div>
         </div>
-        
-        <!-- Section indicator dots -->
-        <div class="section-dots">
-            <div class="dot active" data-section="about" title="About"></div>
-            <div class="dot" data-section="working-papers" title="Working Papers"></div>
-            <div class="dot" data-section="work-progress" title="Work in Progress"></div>
-            <div class="dot" data-section="policy" title="Policy Work"></div>
-            <div class="dot" data-section="teaching" title="Teaching"></div>
-        </div>
     </div>
-    
+
     <script>
-        // Dark mode toggle
         function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            const moonIcon = document.querySelector('.moon-icon');
-            const sunIcon = document.querySelector('.sun-icon');
-            if (newTheme === 'dark') {
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-            } else {
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
+            const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+            document.querySelector('.moon').style.display = t === 'dark' ? 'none' : 'block';
+            document.querySelector('.sun').style.display = t === 'dark' ? 'block' : 'none';
+        }
+        function toggle(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('show');
+            const link = document.querySelector(`[onclick="toggle('${id}'); return false;"]`);
+            if (link) {
+                const text = link.textContent;
+                link.textContent = text.startsWith('▸') ? text.replace('▸', '▾') : text.replace('▾', '▸');
             }
         }
-        
-        // Load saved theme
-        window.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            const moonIcon = document.querySelector('.moon-icon');
-            const sunIcon = document.querySelector('.sun-icon');
-            if (savedTheme === 'dark') {
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-            } else {
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-            }
-        });
-        
-        // App viewer functions
-        function openAppViewer(event) {
-            event.preventDefault();
-            document.getElementById('appOverlay').classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeAppViewer() {
-            document.getElementById('appOverlay').classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Close viewers with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeAppViewer();
-            }
-        });
-        
-        // Section indicator dots
-        function updateDots() {
-            const intro = document.getElementById('intro-section');
-            const sections = document.querySelectorAll('h2');
-            const dots = document.querySelectorAll('.dot');
-            const scrollPosition = window.scrollY + 200;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.body.scrollHeight;
-            
-            const nearBottom = (window.scrollY + windowHeight) >= (documentHeight - 100);
-            
-            if (nearBottom) {
-                dots.forEach(d => d.classList.remove('active'));
-                dots[dots.length - 1].classList.add('active');
-            } else {
-                let currentSection = -1;
-                
-                if (scrollPosition < sections[0].offsetTop) {
-                    currentSection = 0;
-                } else {
-                    sections.forEach((section, index) => {
-                        if (scrollPosition >= section.offsetTop) {
-                            currentSection = index + 1;
-                        }
-                    });
-                }
-                
-                dots.forEach((dot, index) => {
-                    dot.classList.remove('active');
-                    if (index === currentSection) {
-                        dot.classList.add('active');
-                    }
-                });
-            }
-        }
-        
-        function setupDotNavigation() {
-            const intro = document.getElementById('intro-section');
-            const sections = document.querySelectorAll('h2');
-            const dots = document.querySelectorAll('.dot');
-            
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    if (index === 0) {
-                        intro.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else if (sections[index - 1]) {
-                        sections[index - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                    dots.forEach(d => d.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        }
-        
-        window.addEventListener('scroll', updateDots);
-        window.addEventListener('load', function() {
-            updateDots();
-            setupDotNavigation();
-        });
-        
-        // Abstract toggle
-        document.querySelectorAll('.abstract-toggle').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('data-target');
-                const abstract = document.getElementById(targetId);
-                abstract.classList.toggle('show');
-                
-                if (abstract.classList.contains('show')) {
-                    this.textContent = '▾ Abstract';
-                } else {
-                    this.textContent = '▸ Abstract';
-                }
-            });
-        });
-        
-        // Presentations toggle
-        document.querySelectorAll('.presentations-toggle').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('data-target');
-                const presentations = document.getElementById(targetId);
-                presentations.classList.toggle('show');
-                
-                if (presentations.classList.contains('show')) {
-                    this.textContent = '▾ Presentations';
-                } else {
-                    this.textContent = '▸ Presentations';
-                }
-            });
-        });
-        
-        // Funders toggle
-        document.querySelectorAll('.funders-toggle').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('data-target');
-                const funders = document.getElementById(targetId);
-                funders.classList.toggle('show');
-                
-                if (funders.classList.contains('show')) {
-                    this.textContent = '▾ Funders and Partners';
-                } else {
-                    this.textContent = '▸ Funders and Partners';
-                }
-            });
-        });
     </script>
 </body>
 </html>
