@@ -40,7 +40,7 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 300;
             -webkit-font-smoothing: antialiased;
             transition: background 0.3s, color 0.3s;
@@ -67,43 +67,43 @@
         .theme-toggle svg { width: 18px; height: 18px; stroke: var(--text); fill: none; stroke-width: 1.5; }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 40px;
+            padding: 80px 60px;
             display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 70px;
+            grid-template-columns: 300px 1fr;
+            gap: 80px;
         }
         
         .sidebar { position: sticky; top: 80px; }
         
         .profile-img {
-            width: 180px;
-            height: 240px;
+            width: 240px;
+            height: 320px;
             object-fit: cover;
             border-radius: 4px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             filter: grayscale(15%);
             transition: filter 0.3s;
         }
         
         .profile-img:hover { filter: grayscale(0%); }
         
-        .name { font-size: 20px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 6px; color: var(--accent-blue); }
-        .title, .affiliation { color: var(--text-secondary); font-size: 14px; margin-bottom: 4px; font-weight: 400; }
-        .affiliation { margin-bottom: 20px; }
+        .name { font-size: 24px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--accent-blue); }
+        .title, .affiliation { color: var(--text-secondary); font-size: 15px; margin-bottom: 4px; font-weight: 400; }
+        .affiliation { margin-bottom: 24px; }
         
         .cv-btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: 1px solid var(--text);
             color: var(--text);
             text-decoration: none;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
             letter-spacing: 0.5px;
             transition: all 0.2s;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
         
         .cv-btn:hover { background: var(--text); color: var(--bg); }
@@ -112,13 +112,13 @@
             display: block;
             color: var(--accent-red);
             text-decoration: none;
-            font-size: 13px;
+            font-size: 14px;
             margin-bottom: 6px;
         }
         
         .contact a:hover { opacity: 0.7; }
         
-        .address { color: var(--text-secondary); font-size: 12px; line-height: 1.6; margin-top: 12px; }
+        .address { color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-top: 12px; }
         
         .social { display: flex; gap: 14px; margin-top: 20px; }
         .social a { color: var(--text-secondary); transition: color 0.2s; display: flex; align-items: center; }
@@ -128,66 +128,66 @@
         .social .lse:hover { background: var(--accent-blue); }
         
         .main h2 {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--accent-blue);
-            margin-bottom: 20px;
-            margin-top: 40px;
-            padding-bottom: 10px;
+            margin-bottom: 24px;
+            margin-top: 45px;
+            padding-bottom: 12px;
             border-bottom: 1px solid var(--border);
         }
         
         .main h2:first-child { margin-top: 0; }
         
-        .intro { font-size: 14px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px; font-weight: 300; }
+        .intro { font-size: 15px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 28px; font-weight: 300; }
         .intro strong { color: var(--text); font-weight: 400; }
         .intro a { color: var(--accent-red); text-decoration: none; }
         .intro a:hover { text-decoration: underline; }
         
         .jm-notice {
-            padding: 14px 18px;
+            padding: 16px 20px;
             background: var(--card-bg);
             border-left: 2px solid var(--accent-blue);
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 400;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
         
-        .refs { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 13px; margin-bottom: 20px; }
+        .refs { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 14px; margin-bottom: 24px; }
         .refs-label { color: var(--text-secondary); }
         .refs a { color: var(--text); text-decoration: none; }
         .refs a:hover { color: var(--accent-red); }
         
-        .paper { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+        .paper { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
         .paper:last-child { border-bottom: none; }
         
-        .paper-title { font-size: 15px; font-weight: 400; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--accent-red); }
+        .paper-title { font-size: 16px; font-weight: 400; margin-bottom: 6px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; color: var(--accent-red); }
         
         .jmp-tag {
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.8px;
-            padding: 4px 10px;
+            padding: 5px 12px;
             background: var(--accent-red-light);
             color: var(--accent-red);
             border-radius: 2px;
         }
         
-        .coauthors { color: var(--text-secondary); font-size: 13px; margin-bottom: 4px; font-style: italic; font-weight: 300; }
-        .paper-info { color: var(--text-secondary); font-size: 13px; margin-bottom: 8px; }
+        .coauthors { color: var(--text-secondary); font-size: 14px; margin-bottom: 6px; font-style: italic; font-weight: 300; }
+        .paper-info { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; }
         
-        .paper-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
-        .paper-links a { color: var(--text-secondary); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+        .paper-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 10px; }
+        .paper-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.2s; }
         .paper-links a:hover { color: var(--accent-red); }
         .paper-links a.disabled { color: #999; cursor: default; }
         
         .expandable {
             display: none;
-            margin-top: 12px;
-            padding: 16px;
-            font-size: 13px;
+            margin-top: 14px;
+            padding: 18px;
+            font-size: 14px;
             line-height: 1.8;
             color: var(--text-secondary);
             border-left: 2px solid var(--accent-blue);
@@ -202,34 +202,34 @@
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
         
-        .teaching-section h3 { font-size: 13px; font-weight: 500; margin: 20px 0 12px; color: var(--text); }
+        .teaching-section h3 { font-size: 14px; font-weight: 500; margin: 24px 0 14px; color: var(--text); }
         .teaching-section h3:first-child { margin-top: 0; }
         
         .eval-btn {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: var(--accent-red-light);
             border: none;
             color: var(--accent-red);
             text-decoration: none;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             transition: all 0.2s;
             border-radius: 2px;
         }
         
         .eval-btn:hover { background: var(--accent-red); color: white; }
         
-        .teaching-item { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; font-size: 13px; }
-        .course-code { font-family: 'SF Mono', Monaco, monospace; font-size: 11px; color: var(--accent-blue); min-width: 65px; }
+        .teaching-item { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; font-size: 14px; }
+        .course-code { font-family: 'SF Mono', Monaco, monospace; font-size: 12px; color: var(--accent-blue); min-width: 75px; }
         .course-title { color: var(--text); flex: 1; font-weight: 300; }
-        .course-level { color: var(--text-secondary); font-size: 12px; font-style: italic; }
+        .course-level { color: var(--text-secondary); font-size: 13px; font-style: italic; }
         
         @media (max-width: 768px) {
-            .container { grid-template-columns: 1fr; padding: 40px 20px; gap: 40px; }
+            .container { grid-template-columns: 1fr; padding: 40px 24px; gap: 50px; }
             .sidebar { position: static; text-align: center; }
-            .profile-img { margin: 0 auto 20px; }
+            .profile-img { margin: 0 auto 24px; width: 200px; height: 267px; }
             .social { justify-content: center; }
             .theme-toggle { top: 16px; right: 16px; }
             .teaching-item { flex-direction: column; align-items: flex-start; gap: 4px; }
@@ -248,29 +248,29 @@
             <div class="name">Ignacio Banares-Sanchez</div>
             <div class="title">PhD Candidate in Economics</div>
             <div class="affiliation">London School of Economics</div>
-            <a href="#" class="cv-btn">DOWNLOAD CV</a>
+            <a href="https://ibanaressanchez.github.io/Banares_Sanchez_CV.pdf" class="cv-btn" target="_blank">DOWNLOAD CV</a>
             <div class="contact">
                 <a href="mailto:i.banares-sanchez@lse.ac.uk">i.banares-sanchez@lse.ac.uk</a>
             </div>
             <div class="address">32 Lincoln's Inn Fields<br>London WC2A 3PH, UK</div>
             <div class="social">
-                <a href="#" class="lse" title="LSE Profile">LSE</a>
-                <a href="#" title="Google Scholar"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg></a>
-                <a href="#" title="Bluesky"><svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg></a>
+                <a href="https://www.lse.ac.uk/people/ignacio-banares-sanchez" class="lse" title="LSE Profile" target="_blank">LSE</a>
+                <a href="https://scholar.google.com/citations?user=Wyj_C4oAAAAJ&hl=en" title="Google Scholar" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg></a>
+                <a href="https://bsky.app/profile/ibanares-sanchez.bsky.social" title="Bluesky" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg></a>
             </div>
         </div>
 
         <div class="main">
             <h2>About</h2>
             <p class="intro">
-                I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE). I am an applied environmental economist, working on environmental challenges faced by cities in low- and middle-income countries. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources. I am affiliated with <strong><a href="#">STICERD's Economics of Environment and Energy (EEE)</a></strong> programme and I am an <strong><a href="#">Associate at CEP's Green Transition</a></strong> programme.
+                I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE). I am an applied environmental economist, working on environmental challenges faced by cities in low- and middle-income countries. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources. I am affiliated with <strong><a href="https://sticerd.lse.ac.uk/_new/our-work/economics-of-environment-and-energy/people/" target="_blank">STICERD's Economics of Environment and Energy (EEE)</a></strong> programme and I am an <strong><a href="https://cep.lse.ac.uk/_new/people/person.asp?id=11231" target="_blank">Associate at CEP's Green Transition</a></strong> programme.
             </p>
-            <div class="jm-notice">I am on the 2025-26 academic job market. <a href="#" style="color: var(--accent-red);">View my CV here.</a></div>
+            <div class="jm-notice">I am on the 2025-26 academic job market. <a href="https://ibanaressanchez.github.io/Banares_Sanchez_CV.pdf" target="_blank" style="color: var(--accent-red);">View my CV here.</a></div>
             <div class="refs">
                 <span class="refs-label">Placement Director</span>
-                <span><a href="#">Matthias Doepke</a></span>
+                <span><a href="mailto:m.doepke@lse.ac.uk">Matthias Doepke</a></span>
                 <span class="refs-label">References</span>
-                <span><a href="#">Robin Burgess</a>, <a href="#">Oriana Bandiera</a>, <a href="#">Gharad Bryan</a>, <a href="#">Swati Dhingra</a></span>
+                <span><a href="mailto:r.burgess@lse.ac.uk">Robin Burgess</a>, <a href="mailto:o.bandiera@lse.ac.uk">Oriana Bandiera</a>, <a href="mailto:g.t.bryan@lse.ac.uk">Gharad Bryan</a>, <a href="mailto:s.dhingra@lse.ac.uk">Swati Dhingra</a></span>
             </div>
 
             <h2>Working Papers</h2>
@@ -280,7 +280,7 @@
                 <div class="coauthors">with Yoshiki Wiskamp</div>
                 <div class="paper-links">
                     <a href="#" onclick="toggle('abs1'); return false;">▸ Abstract</a>
-                    <a href="#">[paper]</a>
+                    <a href="https://ibanaressanchez.github.io/jmp.pdf" target="_blank">[paper]</a>
                     <a href="#" onclick="toggle('pres1'); return false;">▸ Presentations</a>
                     <a href="#" onclick="toggle('fund1'); return false;">▸ Funders and Partners</a>
                 </div>
@@ -294,7 +294,7 @@
                 <div class="coauthors">with Robin Burgess, David Laszlo, Pol Simpson, John Van Reenen, and Yifan Wang</div>
                 <div class="paper-links">
                     <a href="#" onclick="toggle('abs2'); return false;">▸ Abstract</a>
-                    <a href="#">[paper]</a>
+                    <a href="https://ibanaressanchez.github.io/solar.pdf" target="_blank">[paper]</a>
                     <a href="#" onclick="toggle('pres2'); return false;">▸ Presentations</a>
                 </div>
                 <div class="expandable abstract" id="abs2">Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.</div>
@@ -357,7 +357,7 @@
             <h2>Teaching</h2>
             
             <div class="teaching-section">
-                <a href="#" class="eval-btn">View Teaching Evaluations</a>
+                <a href="I_Banares_Sanchez_Teaching_Evaluations.pdf" class="eval-btn" target="_blank">View Teaching Evaluations</a>
                 
                 <h3>Currently Teaching</h3>
                 <div class="teaching-item">
