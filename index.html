@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ignacio Banares-Sanchez</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
             --bg: #ffffff;
-            --text: #111111;
-            --text-secondary: #2a2a2a;
-            --accent-blue: #3a7ca5;
-            --accent-red: #c45c5c;
+            --text: #000000;
+            --text-secondary: #111111;
+            --accent-blue: #2779a7;
+            --accent-red: #d14545;
             --accent-red-light: #f5e8e8;
             --border: #e5e5e5;
             --card-bg: #fff;
@@ -23,8 +27,8 @@
             --bg: #0a0a0a;
             --text: #fafafa;
             --text-secondary: #a3a3a3;
-            --accent-blue: #85c1e0;
-            --accent-red: #e07a7a;
+            --accent-blue: #5cb8e0;
+            --accent-red: #e86060;
             --accent-red-light: #2a1f1f;
             --border: #262626;
             --card-bg: #171717;
@@ -37,7 +41,7 @@
             color: var(--text);
             line-height: 1.7;
             font-size: 16px;
-            font-weight: 300;
+            font-weight: 400;
             -webkit-font-smoothing: antialiased;
             transition: background 0.3s, color 0.3s;
         }
@@ -73,7 +77,7 @@
         
         .sidebar { position: sticky; top: 50px; text-align: center; align-self: start; }
         
-        .name { font-family: -apple-system, system-ui, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 16px; color: var(--accent-blue); white-space: nowrap; }
+        .name { font-family: -apple-system, system-ui, 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; color: var(--accent-blue); white-space: nowrap; }
         
         .profile-img {
             width: 260px;
@@ -107,14 +111,16 @@
         .cv-btn:hover { background: var(--text); color: var(--bg); }
         
         .contact a {
-            display: block;
+            display: inline-block;
             color: var(--accent-red);
             text-decoration: none;
             font-size: 14px;
             margin-bottom: 6px;
+            position: relative;
         }
         
-        .contact a:hover { opacity: 0.7; }
+        .contact a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--accent-red); transition: width 0.3s ease; }
+        .contact a:hover::after { width: 100%; }
         
         .address { color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-top: 10px; }
         
@@ -124,6 +130,45 @@
         .social svg { width: 18px; height: 18px; fill: currentColor; }
         .social .lse { font-size: 9px; font-weight: 700; background: var(--text-secondary); color: var(--bg); padding: 4px 5px; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
         .social .lse:hover { background: var(--accent-blue); color: white; }
+        
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .sidebar-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.2s;
+            width: fit-content;
+            margin: 0 auto;
+        }
+        
+        .sidebar-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .sidebar-nav a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .sidebar-nav a:hover::after {
+            width: 100%;
+        }
         
         .main h2 {
             font-size: 14px;
@@ -135,19 +180,22 @@
             margin-top: 45px;
             padding-bottom: 12px;
             border-bottom: 1px solid var(--border);
+            scroll-margin-top: 30px;
         }
         
         .main h2:first-child { margin-top: 0; }
         
-        .intro { font-size: 14px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px; font-weight: 300; }
+        .intro { font-size: 14px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px; font-weight: 400; }
         .intro strong { color: var(--text); font-weight: 400; }
-        .intro a { color: var(--accent-red); text-decoration: none; }
-        .intro a:hover { text-decoration: underline; }
+        .intro a { color: var(--accent-red); text-decoration: none; position: relative; }
+        .intro a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--accent-red); transition: width 0.3s ease; }
+        .intro a:hover::after { width: 100%; }
         
-        .affiliations { font-size: 14px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 28px; font-weight: 300; }
+        .affiliations { font-size: 14px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 28px; font-weight: 400; }
         .affiliations strong { color: var(--accent-blue); font-weight: 600; }
-        .affiliations a { color: var(--accent-red); text-decoration: none; }
-        .affiliations a:hover { text-decoration: underline; }
+        .affiliations a { color: var(--accent-red); text-decoration: none; position: relative; }
+        .affiliations a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--accent-red); transition: width 0.3s ease; }
+        .affiliations a:hover::after { width: 100%; }
         
         .jm-notice {
             padding: 16px 20px;
@@ -160,8 +208,10 @@
         
         .refs { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 14px; margin-bottom: 24px; }
         .refs-label { color: var(--text-secondary); }
-        .refs a { color: var(--text); text-decoration: none; }
+        .refs a { color: var(--text); text-decoration: none; position: relative; }
+        .refs a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--accent-red); transition: width 0.3s ease; }
         .refs a:hover { color: var(--accent-red); }
+        .refs a:hover::after { width: 100%; }
         
         .paper { margin-bottom: 20px; }
         .paper:last-child { margin-bottom: 0; }
@@ -178,13 +228,16 @@
             border-radius: 2px;
         }
         
-        .coauthors { color: var(--text-secondary); font-size: 14px; margin-bottom: 6px; font-style: italic; font-weight: 300; }
+        .coauthors { color: var(--text-secondary); font-size: 14px; margin-bottom: 6px; font-style: italic; font-weight: 400; }
         .paper-info { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; }
         
         .paper-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 10px; }
-        .paper-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+        .paper-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.2s; position: relative; }
+        .paper-links a::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px; background: var(--accent-red); transition: width 0.3s ease; }
         .paper-links a:hover { color: var(--accent-red); }
+        .paper-links a:hover::after { width: 100%; }
         .paper-links a.disabled { color: #999; cursor: default; }
+        .paper-links a.disabled::after { display: none; }
         
         .expandable {
             display: none;
@@ -194,7 +247,7 @@
             line-height: 1.8;
             color: var(--text-secondary);
             border-left: 2px solid var(--accent-blue);
-            font-weight: 300;
+            font-weight: 400;
             background: var(--abstract-bg);
         }
         
@@ -224,7 +277,7 @@
         
         .teaching-item { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; font-size: 14px; }
         .course-code { font-family: 'SF Mono', Monaco, monospace; font-size: 12px; color: var(--accent-blue); min-width: 75px; }
-        .course-title { color: var(--text); flex: 1; font-weight: 300; }
+        .course-title { color: var(--text); flex: 1; font-weight: 400; }
         .course-level { color: var(--text-secondary); font-size: 13px; font-style: italic; }
         
         @media (max-width: 768px) {
@@ -259,10 +312,18 @@
                 <a href="https://scholar.google.com/citations?user=Wyj_C4oAAAAJ&hl=en" title="Google Scholar" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg></a>
                 <a href="https://bsky.app/profile/ibanares-sanchez.bsky.social" title="Bluesky" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg></a>
             </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#about">About</a>
+                <a href="#working-papers">Working Papers</a>
+                <a href="#work-in-progress">Work in Progress</a>
+                <a href="#policy-work">Policy Work</a>
+                <a href="#teaching">Teaching</a>
+            </nav>
         </div>
 
         <div class="main">
-            <h2>About</h2>
+            <h2 id="about">About</h2>
             <p class="intro">
                 I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE). I am an applied environmental economist, working on environmental challenges faced by cities in low- and middle-income countries. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources.
             </p>
@@ -275,7 +336,7 @@
                 <span><a href="mailto:r.burgess@lse.ac.uk">Robin Burgess</a>, <a href="mailto:o.bandiera@lse.ac.uk">Oriana Bandiera</a>, <a href="mailto:g.t.bryan@lse.ac.uk">Gharad Bryan</a>, <a href="mailto:s.dhingra@lse.ac.uk">Swati Dhingra</a></span>
             </div>
 
-            <h2>Working Papers</h2>
+            <h2 id="working-papers">Working Papers</h2>
             
             <div class="paper">
                 <div class="paper-title">Trading Trash on Tricycles <span class="jmp-tag">JOB MARKET PAPER</span></div>
@@ -313,7 +374,7 @@
                 <div class="expandable" id="abs3">The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. Sanitation investments might therefore be essential to allow for people to tolerate density and for positive agglomeration externalities to emerge; thereby turning population density from a downside into an upside. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century. We first present event studies examining changes in firm density, residential density, land values, and disease incidences. We then leverage an urban model to estimate the impact of sewers on the strength of agglomeration and city structure. Through counterfactual analyses we examine the impact, cost-benefit, and alternative placements of sewers. Finally, we asses the extent to which sewers displaced pollution to the Parisian suburbs, affecting their long-term development.</div>
             </div>
 
-            <h2>Work in Progress</h2>
+            <h2 id="work-in-progress">Work in Progress</h2>
             
             <div class="paper">
                 <div class="paper-title">The Miracle on the Han: Urbanisation, Industrial Policy, and Rural Development</div>
@@ -348,7 +409,7 @@
                 <div class="expandable" id="fund6"><strong>Funders and Partners:</strong> International Growth Centre (IGC)</div>
             </div>
 
-            <h2>Policy Work</h2>
+            <h2 id="policy-work">Policy Work</h2>
             
             <div class="paper">
                 <div class="paper-title">Water and Sanitation Provision in Developing Cities</div>
@@ -356,7 +417,7 @@
                 <div class="paper-info">IGC Policy Paper</div>
             </div>
 
-            <h2>Teaching</h2>
+            <h2 id="teaching">Teaching</h2>
             
             <div class="teaching-section">
                 <a href="I_Banares_Sanchez_Teaching_Evaluations.pdf" class="eval-btn" target="_blank">View Teaching Evaluations</a>
