@@ -170,6 +170,43 @@
             width: 100%;
         }
         
+        .main-nav {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        
+        .main-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.2s;
+        }
+        
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .main-nav a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
         .main h2 {
             font-size: 14px;
             font-weight: 600;
@@ -269,11 +306,32 @@
             font-size: 13px;
             font-weight: 500;
             margin-bottom: 24px;
-            transition: all 0.2s;
             border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: color 0.3s ease;
         }
         
-        .eval-btn:hover { background: var(--accent-red); color: white; }
+        .eval-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-red);
+            z-index: -1;
+            transition: left 0.3s ease;
+        }
+        
+        .eval-btn:hover {
+            color: white;
+        }
+        
+        .eval-btn:hover::before {
+            left: 0;
+        }
         
         .teaching-item { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; font-size: 14px; }
         .course-code { font-family: 'SF Mono', Monaco, monospace; font-size: 12px; color: var(--accent-blue); min-width: 75px; }
@@ -323,6 +381,14 @@
         </div>
 
         <div class="main">
+            <nav class="main-nav">
+                <a href="#about">About</a>
+                <a href="#working-papers">Working Papers</a>
+                <a href="#work-in-progress">Work in Progress</a>
+                <a href="#policy-work">Policy Work</a>
+                <a href="#teaching">Teaching</a>
+            </nav>
+            
             <h2 id="about">About</h2>
             <p class="intro">
                 I am a PhD Candidate in Economics at the London School of Economics and Political Science (LSE). I am an applied environmental economist, working on environmental challenges faced by cities in low- and middle-income countries. I use tools from applied microeconomics, spatial economics, and empirical industrial organisation, combining structural models with primary data collection, field experiments, and historical sources.
