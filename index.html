@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ignacio Banares-Sanchez</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,11 +17,9 @@
     --text-muted: #6b6b6b;
     --blue: #1740b0;
     --blue-light: #e8edfc;
-    --blue-mid: #3a5fd4;
     --border: #d8d6d0;
     --card-bg: #ffffff;
     --abstract-bg: #f0f0ee;
-    --name-bg: #0a0a0a;
   }
 
   [data-theme="dark"] {
@@ -31,19 +29,17 @@
     --text-muted: #888;
     --blue: #6b8ef5;
     --blue-light: #141c3a;
-    --blue-mid: #8aabff;
     --border: #2a2a2a;
     --card-bg: #161616;
     --abstract-bg: #131313;
-    --name-bg: #f0efe9;
   }
 
   body {
     font-family: 'Inter', -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.7;
-    font-size: 15px;
+    line-height: 1.75;
+    font-size: 13px;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     transition: background 0.3s, color 0.3s;
@@ -76,17 +72,18 @@
 
   .name {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: -0.3px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
     color: var(--text);
     line-height: 1.2;
+    white-space: nowrap;
   }
 
   .profile-img {
-    width: 250px; height: 333px;
+    width: 210px; height: 280px;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 22px;
@@ -96,8 +93,8 @@
   }
   .profile-img:hover { filter: grayscale(0%); }
 
-  .title { color: var(--text-secondary); font-size: 13px; font-weight: 600; letter-spacing: 0.4px; margin-bottom: 2px; text-transform: uppercase; }
-  .affiliation { color: var(--text-muted); font-size: 13px; margin-bottom: 20px; }
+  .title { color: var(--text-secondary); font-size: 12px; font-weight: 600; letter-spacing: 0.4px; margin-bottom: 2px; text-transform: uppercase; }
+  .affiliation { color: var(--text-muted); font-size: 12px; margin-bottom: 20px; }
 
   .cv-btn {
     display: inline-block;
@@ -111,7 +108,7 @@
     text-transform: uppercase;
     margin-bottom: 20px;
     border-radius: 2px;
-    transition: background 0.25s, color 0.25s, transform 0.15s;
+    transition: background 0.25s, transform 0.15s;
   }
   .cv-btn:hover { background: var(--blue); transform: translateY(-1px); }
 
@@ -144,12 +141,9 @@
 
   .sidebar-nav { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; padding-top: 22px; border-top: 1.5px solid var(--text); }
   .sidebar-nav a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: var(--text-muted); text-decoration: none;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
     transition: color 0.2s;
     width: fit-content; margin: 0 auto;
   }
@@ -169,28 +163,28 @@
 
   .main h2 {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 22px;
-    font-weight: 900;
+    font-size: 15px;
+    font-weight: 600;
     color: var(--text);
     margin-bottom: 26px;
     margin-top: 52px;
-    padding-bottom: 14px;
-    border-bottom: 2px solid var(--text);
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--text);
     scroll-margin-top: 30px;
-    letter-spacing: -0.3px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
   }
   .main h2:first-of-type { margin-top: 0; }
 
-  .intro { font-size: 15px; line-height: 1.85; color: var(--text-secondary); margin-bottom: 16px; }
+  .intro { font-size: 14px; line-height: 1.85; color: var(--text-secondary); margin-bottom: 16px; }
   .intro strong { color: var(--text); font-weight: 700; }
   .intro a { color: var(--blue); text-decoration: none; font-weight: 500; position: relative; }
   .intro a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--blue); transition: width 0.3s; }
   .intro a:hover::after { width: 100%; }
 
-  .affiliations { font-size: 14px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 28px; }
+  .affiliations { font-size: 13px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 28px; }
   .affiliations strong { color: var(--text); font-weight: 700; }
-  .affiliations a { color: var(--blue); font-weight: 500; text-decoration: none; position: relative; }
+  .affiliations a { color: var(--blue); font-weight: 500; text-decoration: none; position: relative; display: inline-block; }
   .affiliations a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--blue); transition: width 0.3s; }
   .affiliations a:hover::after { width: 100%; }
 
@@ -207,8 +201,8 @@
   .jm-notice a { color: var(--blue); text-decoration: none; font-weight: 700; }
   .jm-notice a:hover { text-decoration: underline; }
 
-  .refs { display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; font-size: 14px; margin-bottom: 24px; }
-  .refs-label { color: var(--text-muted); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; align-self: center; }
+  .refs { display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; font-size: 13px; margin-bottom: 24px; }
+  .refs-label { color: var(--text-muted); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; align-self: center; }
   .refs a { color: var(--text); text-decoration: none; font-weight: 500; position: relative; }
   .refs a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--blue); transition: width 0.3s; }
   .refs a:hover { color: var(--blue); }
@@ -220,8 +214,8 @@
 
   .paper-title {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 600;
     font-style: italic;
     margin-bottom: 8px;
     display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
@@ -243,7 +237,7 @@
   }
 
   .coauthors { color: var(--text-muted); font-size: 13px; margin-bottom: 6px; font-style: italic; }
-  .paper-info { color: var(--text-muted); font-size: 13px; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .paper-info { color: var(--text-muted); font-size: 11px; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
 
   .paper-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; }
   .paper-links a {
@@ -261,7 +255,7 @@
     display: none;
     margin-top: 16px;
     padding: 18px 20px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.85;
     color: var(--text-secondary);
     border-left: 3px solid var(--blue);
@@ -275,8 +269,8 @@
   /* ── TEACHING ── */
   .teaching-section h3 {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 600;
     margin: 28px 0 16px;
     color: var(--text);
     letter-spacing: -0.2px;
@@ -300,7 +294,7 @@
   }
   .eval-btn:hover { background: var(--text); color: var(--bg); }
 
-  .teaching-item { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; font-size: 14px; }
+  .teaching-item { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; font-size: 13px; }
   .course-code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; font-weight: 700; color: var(--blue); min-width: 80px; letter-spacing: 0.5px; }
   .course-title { color: var(--text); flex: 1; font-weight: 500; }
   .course-level { color: var(--text-muted); font-size: 12px; font-style: italic; }
@@ -309,7 +303,6 @@
     .container { grid-template-columns: 1fr; padding: 36px 24px; gap: 44px; }
     .sidebar { position: static; }
     .profile-img { margin: 0 auto 24px; width: 200px; height: 267px; }
-    .social { justify-content: center; }
     .theme-toggle { top: 16px; right: 16px; }
     .teaching-item { flex-direction: column; gap: 4px; }
     .main-nav { display: none; }
@@ -324,7 +317,7 @@
 
   <div class="container">
     <div class="sidebar">
-      <div class="name">Ignacio<br>Banares-Sanchez</div>
+      <div class="name">Ignacio Banares-Sanchez</div>
       <img src="Profile.jpg" alt="Ignacio Banares-Sanchez" class="profile-img">
       <div class="title">PhD Candidate in Economics</div>
       <div class="affiliation">London School of Economics</div>
@@ -378,7 +371,7 @@
           <a href="#" onclick="toggle('pres1'); return false;">▸ Presentations</a>
           <a href="#" onclick="toggle('fund1'); return false;">▸ Funders & Partners</a>
         </div>
-        <div class="expandable" id="abs1">Urbanisation generates powerful agglomeration benefits but also severe congestion externalities that require regulation and public goods provision. In developing megacities, governments lack the fiscal and enforcement capacity to implement textbook solutions. In their absence, unregulated private provision emerges across sectors such as waste, sanitation, water, and transport, leaving externalities largely unaddressed. What can economics offer cities that cannot implement textbook policies? We study whether limited, feasible regulation can leverage informal markets to deliver public services at scale, focusing on trash collection in Accra, Ghana. Using novel data, we document an imperfect but functioning market: households pay informal tricycle collectors for door-to-door collection, yet prices remain too high for universal access, and final disposal occurs largely at illegal dumpsites. We identify a single feasible policy lever—subsidies for formal, environmentally controlled disposal—and evaluate it using a new structural model of urban waste collection and disposal. Counterfactual results show that a modest subsidy achieves roughly 80% of the efficient outcome, substantially reducing environmental damages while generating larger welfare gains at lower cost than planned infrastructure expansion.</div>
+        <div class="expandable" id="abs1">Urbanisation generates powerful agglomeration benefits but also severe congestion externalities that require regulation and public goods provision. In developing megacities, governments lack the fiscal and enforcement capacity to implement textbook solutions. In their absence, unregulated private provision emerges across sectors such as waste, sanitation, water, and transport, leaving externalities largely unaddressed. What can economics offer cities that cannot implement textbook policies? We study whether limited, feasible regulation can leverage informal markets to deliver public services at scale, focusing on trash collection in Accra, Ghana. Using novel data, we document an imperfect but functioning market: households pay informal tricycle collectors for door-to-door collection, yet prices remain too high for universal access, and final disposal occurs largely at illegal dumpsites. Counterfactual results show that a modest subsidy achieves roughly 80% of the efficient outcome, substantially reducing environmental damages while generating larger welfare gains at lower cost than planned infrastructure expansion.</div>
         <div class="expandable" id="pres1"><strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop, CURE, Guest Lecture at Kyiv School of Economics; (scheduled) STEG Annual Conference 2026</div>
         <div class="expandable" id="fund1"><strong>Funders & Partners:</strong> International Growth Centre (IGC), STICERD, Innovations for Poverty Action (IPA), DataPlas Ghana</div>
       </div>
@@ -391,7 +384,7 @@
           <a href="https://poid.lse.ac.uk/textonly/publications/downloads/poidwp143.pdf" target="_blank">[Paper]</a>
           <a href="#" onclick="toggle('pres2'); return false;">▸ Presentations</a>
         </div>
-        <div class="expandable" id="abs2">Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004–2020, we find that production and innovation subsidies were more effective than demand-side subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers.</div>
+        <div class="expandable" id="abs2">Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004–2020, we find that production and innovation subsidies were more effective than demand-side subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports.</div>
         <div class="expandable" id="pres2"><strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (scheduled) ASSA Annual Meeting in Philadelphia</div>
       </div>
 
@@ -402,7 +395,7 @@
           <a href="#" onclick="toggle('abs3'); return false;">▸ Abstract</a>
           <a href="#" class="disabled">[slides available upon request]</a>
         </div>
-        <div class="expandable" id="abs3">The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. Sanitation investments might therefore be essential to allow for people to tolerate density and for positive agglomeration externalities to emerge; thereby turning population density from a downside into an upside. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century.</div>
+        <div class="expandable" id="abs3">The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century.</div>
       </div>
 
       <h2 id="work-in-progress">Work in Progress</h2>
@@ -414,7 +407,7 @@
           <a href="#" onclick="toggle('abs4'); return false;">▸ Abstract</a>
           <a href="#" onclick="toggle('fund4'); return false;">▸ Funders & Partners</a>
         </div>
-        <div class="expandable" id="abs4">Economic growth involves the spatial and sectoral reallocation of people and firms. How much should governments plan this reallocation, and what makes spatial planning successful? South Korea rose from poverty to become a leading industrialised economy today in a remarkably condensed timeline. We are creating a new historical database tracking all facets of South Korea's structural transformation from the mid- to late-20th century.</div>
+        <div class="expandable" id="abs4">Economic growth involves the spatial and sectoral reallocation of people and firms. South Korea rose from poverty to become a leading industrialised economy in a remarkably condensed timeline. We are creating a new historical database tracking all facets of South Korea's structural transformation from the mid- to late-20th century.</div>
         <div class="expandable" id="fund4"><strong>Funders & Partners:</strong> Structural Transformation and Economic Growth (STEG), Economic and Social Research Council (ESRC)</div>
       </div>
 
@@ -425,7 +418,7 @@
           <a href="#" onclick="toggle('abs5'); return false;">▸ Abstract</a>
           <a href="#" onclick="toggle('fund5'); return false;">▸ Funders & Partners</a>
         </div>
-        <div class="expandable" id="abs5">Electricity is a crucial input for modern production, yet its quality across time and space varies substantially. In this project, we ask how the endogenous allocation of electricity affects firm productivity and agglomeration. We build a unique spatial dataset combining administrative data on electricity consumption, engineering records on electricity outages, and a detailed firm panel from a national census.</div>
+        <div class="expandable" id="abs5">Electricity is a crucial input for modern production, yet its quality across time and space varies substantially. We ask how the endogenous allocation of electricity affects firm productivity and agglomeration, combining administrative data on electricity consumption, engineering records on outages, and a detailed firm panel from a national census.</div>
         <div class="expandable" id="fund5"><strong>Funders & Partners:</strong> International Growth Centre (IGC)</div>
       </div>
 
@@ -436,7 +429,7 @@
           <a href="#" onclick="toggle('abs6'); return false;">▸ Abstract</a>
           <a href="#" onclick="toggle('fund6'); return false;">▸ Funders & Partners</a>
         </div>
-        <div class="expandable" id="abs6">Using geolocated information on over 400,000 water points and a variety of health surveys across Sub-Saharan Africa, we document that access to functioning water and improved sanitation increases villages' resilience to high temperatures, reducing mortality and disease incidence.</div>
+        <div class="expandable" id="abs6">Using geolocated information on over 400,000 water points and health surveys across Sub-Saharan Africa, we document that access to functioning water and improved sanitation increases villages' resilience to high temperatures, reducing mortality and disease incidence.</div>
         <div class="expandable" id="fund6"><strong>Funders & Partners:</strong> International Growth Centre (IGC)</div>
       </div>
 
