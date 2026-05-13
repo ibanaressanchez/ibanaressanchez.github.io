@@ -5,21 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ignacio Banares-Sanchez</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #ffffff;
+    --bg: #fbfaf6;
     --text: #0a0a0a;
     --text-secondary: #3a3a3a;
     --text-muted: #6b6b6b;
-    --blue: #1740b0;
-    --blue-light: #e8edfc;
+    --blue: #2d5394;
+    --blue-light: #e8edf5;
+    --burgundy: #8b2e3f;
     --border: #d8d6d0;
-    --card-bg: #ffffff;
-    --abstract-bg: #f0f0ee;
+    --card-bg: #fbfaf6;
+    --abstract-bg: #f4f2eb;
   }
 
   [data-theme="dark"] {
@@ -27,8 +28,9 @@
     --text: #f0efe9;
     --text-secondary: #c0bfba;
     --text-muted: #888;
-    --blue: #6b8ef5;
-    --blue-light: #141c3a;
+    --blue: #8aa8d8;
+    --blue-light: #18223a;
+    --burgundy: #d28893;
     --border: #2a2a2a;
     --card-bg: #161616;
     --abstract-bg: #131313;
@@ -86,7 +88,7 @@
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 22px;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+    box-shadow: 0 2px 14px rgba(0,0,0,0.09);
   }
 
   .title { color: var(--text-secondary); font-size: 12px; font-weight: 600; letter-spacing: 0.4px; margin-bottom: 2px; text-transform: uppercase; }
@@ -145,11 +147,11 @@
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: var(--text);
+    color: var(--burgundy);
     margin-bottom: 16px;
     margin-top: 28px;
     padding-bottom: 12px;
-    border-bottom: 1.5px solid var(--text);
+    border-bottom: 1px solid var(--border);
     scroll-margin-top: 30px;
   }
   .main h2:first-of-type { margin-top: 0; }
@@ -166,9 +168,9 @@
   .paper:last-child { margin-bottom: 0; }
 
   .paper-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 500;
     margin-bottom: 4px;
     display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
     color: var(--text);
@@ -176,7 +178,8 @@
   }
 
   .jmp-tag {
-    font-size: 13px;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14px;
     font-weight: 400;
     font-style: italic;
     color: var(--blue);
@@ -199,6 +202,36 @@
   .coauthors { color: var(--text-muted); font-size: 13px; margin-bottom: 6px; font-style: italic; }
   .paper-info { color: var(--text-muted); font-size: 11px; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
 
+  .award {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .award a { color: var(--blue); text-decoration: none; transition: opacity 0.2s; }
+  .award a:hover { opacity: 0.5; }
+
+  .status-line {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  .status-line strong { font-weight: 700; font-style: italic; color: var(--text); }
+
+  .rr-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    background: var(--blue-light);
+    color: var(--blue);
+    border-radius: 999px;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+  }
+  .rr-pill strong { font-weight: 700; }
+
   .paper-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
   .paper-links a {
     color: var(--blue); text-decoration: none;
@@ -212,13 +245,12 @@
   .expandable {
     display: none;
     margin-top: 12px;
-    padding: 14px 18px;
+    padding: 4px 18px;
     font-size: 13px;
     line-height: 1.85;
     color: var(--text-secondary);
-    border-left: 3px solid var(--blue);
-    background: var(--abstract-bg);
-    border-radius: 0 3px 3px 0;
+    border-left: 2px solid var(--blue);
+    background: transparent;
   }
   .expandable.show { display: block; animation: fadeIn 0.25s ease; }
   .expandable strong { color: var(--text); font-weight: 700; }
@@ -310,7 +342,6 @@
         <a href="#working-papers">Working Papers</a>
         <a href="#work-in-progress">Work in Progress</a>
         <a href="#policy-work">Policy Work</a>
-        <a href="#teaching">Teaching</a>
       </nav>
 
       <h2 id="about">About</h2>
@@ -322,6 +353,7 @@
       <div class="paper">
         <div class="paper-title">Trading Trash on Tricycles <span class="jmp-tag">(Job Market Paper)</span></div>
         <div class="coauthors">with Yoshiki Wiskamp</div>
+        <div class="award">Urban Economics Association Prize <a href="https://urbaneconomics.org/meetings/awards.html" target="_blank">(Best Student Paper at the 2026 European Meeting)</a></div>
 
         <div class="paper-links">
           <a href="#" onclick="toggle('abs1'); return false;">▸ Abstract</a>
@@ -337,6 +369,7 @@
       <div class="paper">
         <div class="paper-title">Ray of Hope? China and the Rise of Solar Energy</div>
         <div class="coauthors">with Robin Burgess, David Laszlo, Pol Simpson, John Van Reenen, and Yifan Wang</div>
+        <div class="status-line">Revise and Resubmit, <strong>Quarterly Journal of Economics</strong></div>
         <div class="paper-links">
           <a href="#" onclick="toggle('abs2'); return false;">▸ Abstract</a>
           <a href="https://poid.lse.ac.uk/textonly/publications/downloads/poidwp143.pdf" target="_blank">[Paper]</a>
@@ -344,7 +377,6 @@
           <a href="#" onclick="toggle('pres2'); return false;">▸ Presentations</a>
           <a href="https://voxdev.org/topic/energy-environment/ray-hope-rise-solar-energy-china" target="_blank">[VoxDev]</a>
           <a href="https://cepr.org/voxeu/columns/ray-hope-rise-solar-energy-china" target="_blank">[VoxEU]</a>
-          <span class="status-tag">Submitted</span>
         </div>
         <div class="expandable" id="abs2">Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.</div>
         <div class="expandable" id="pres2"><strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (2026) ASSA Annual Meeting in Philadelphia</div>
@@ -401,48 +433,13 @@
         </div>
       </div>
 
-      <h2 id="teaching">Teaching</h2>
-
-      <div class="teaching-group">
-        <h3>Currently Teaching</h3>
-        <div class="teaching-item">
-          <span class="course-code">PP454</span>
-          <span class="course-title">Development Economics for MPA students</span>
-          <span class="course-level">graduate</span>
-        </div>
-        <div class="teaching-item">
-          <span class="course-code">EC330</span>
-          <span class="course-title">Environmental Economics</span>
-          <span class="course-level">undergraduate</span>
-        </div>
-        <div class="teaching-item">
-          <span class="course-code">MATH CAMP</span>
-          <span class="course-title">Mathematics and Statistics for MPP students</span>
-          <span class="course-level">graduate</span>
-        </div>
-      </div>
-
-      <div class="teaching-group">
-        <h3>Previous Teaching</h3>
-        <div class="teaching-item">
-          <span class="course-code">EC307</span>
-          <span class="course-title">Development Economics</span>
-          <span class="course-level">undergraduate</span>
-        </div>
-        <div class="teaching-item">
-          <span class="course-code">EC2C3</span>
-          <span class="course-title">Econometrics I</span>
-          <span class="course-level">undergraduate</span>
-        </div>
-        <div class="teaching-item">
-          <span class="course-code">EC1A5</span>
-          <span class="course-title">Microeconomics I</span>
-          <span class="course-level">undergraduate</span>
-        </div>
-        <div class="teaching-item">
-          <span class="course-code">OPEN</span>
-          <span class="course-title">IZA/FCDO G²LM|LIC Online Development Economics</span>
-          <span class="course-level">all students and professionals</span>
+      <div class="paper">
+        <div class="paper-title">Policy options for expanding urban water and sanitation</div>
+        <div class="coauthors">with Mikey Blake, Victoria Delbridge, Ed Glaeser, and Yoshiki Wiskamp</div>
+        <div class="paper-info">IGC Policy Toolkit</div>
+        <div class="paper-links">
+          <a href="https://www.theigc.org/publications/policy-options-expanding-urban-water-and-sanitation-0" target="_blank">[Link]</a>
+          <a href="https://www.theigc.org/sites/default/files/2026-04/Policy-Options-for-Expanding-Urban-Water-Sanitation-.pdf" target="_blank">[Policy Brief]</a>
         </div>
       </div>
 
