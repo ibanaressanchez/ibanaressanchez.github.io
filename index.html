@@ -15,8 +15,8 @@
     --text: #0a0a0a;
     --text-secondary: #3a3a3a;
     --text-muted: #6b6b6b;
-    --blue: #2d5394;
-    --blue-light: #e8edf5;
+    --blue: #3a64a8;
+    --blue-light: #ecf0f7;
     --border: #d8d6d0;
     --card-bg: #fdfcf8;
     --abstract-bg: #f4f2eb;
@@ -70,11 +70,10 @@
   .sidebar { position: sticky; top: 48px; text-align: center; align-self: start; }
 
   .name {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0;
     margin-bottom: 18px;
     color: var(--text);
     line-height: 1.2;
@@ -141,14 +140,14 @@
 
   .main h2 {
     font-family: 'Inter', sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--text);
-    margin-bottom: 16px;
-    margin-top: 28px;
-    padding-bottom: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    margin-top: 32px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
     scroll-margin-top: 30px;
   }
@@ -162,7 +161,7 @@
   }
   .berkeley-link:hover { opacity: 0.5; }
 
-  .paper { margin-bottom: 10px; padding-bottom: 10px; }
+  .paper { margin-bottom: 22px; padding-bottom: 4px; }
   .paper:last-child { margin-bottom: 0; }
 
   .paper-title {
@@ -230,7 +229,7 @@
   }
   .rr-pill strong { font-weight: 700; }
 
-  .paper-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
+  .paper-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
   .paper-links a {
     color: var(--blue); text-decoration: none;
     font-size: 12px; font-weight: 700;
@@ -371,10 +370,11 @@
         <div class="paper-links">
           <a href="#" onclick="toggle('abs2'); return false;">▸ Abstract</a>
           <a href="https://poid.lse.ac.uk/textonly/publications/downloads/poidwp143.pdf" target="_blank">[Paper]</a>
-          <a href="https://www.nber.org/papers/w34893" target="_blank">[NBER Working Paper No. 34893]</a>
-          <a href="#" onclick="toggle('pres2'); return false;">▸ Presentations</a>
+          <a href="https://www.nber.org/papers/w34893" target="_blank">[NBER WP]</a>
           <a href="https://voxdev.org/topic/energy-environment/ray-hope-rise-solar-energy-china" target="_blank">[VoxDev]</a>
           <a href="https://cepr.org/voxeu/columns/ray-hope-rise-solar-energy-china" target="_blank">[VoxEU]</a>
+          <a href="https://www.voxchina.org/show-3-450.html" target="_blank">[VoxChina]</a>
+          <a href="#" onclick="toggle('pres2'); return false;">▸ Presentations</a>
         </div>
         <div class="expandable" id="abs2">Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.</div>
         <div class="expandable" id="pres2"><strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (2026) ASSA Annual Meeting in Philadelphia</div>
