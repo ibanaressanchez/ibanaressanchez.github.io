@@ -67,11 +67,20 @@
     margin: 0 auto;
     padding: 56px 60px;
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 320px 1fr;
     gap: 80px;
   }
 
-  .sidebar { position: sticky; top: 48px; text-align: center; align-self: start; }
+  .sidebar {
+    position: sticky;
+    top: 48px;
+    text-align: center;
+    align-self: start;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .sidebar::-webkit-scrollbar { display: none; }
 
   .name {
     font-family: 'Source Serif 4', Georgia, serif;
