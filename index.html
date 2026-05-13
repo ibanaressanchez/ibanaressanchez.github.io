@@ -527,7 +527,7 @@
     function showBW(el) {
       el.classList.add('bw');
       clearTimeout(el._bwTimer);
-      el._bwTimer = setTimeout(() => el.classList.remove('bw'), 3500);
+      el._bwTimer = setTimeout(() => el.classList.remove('bw'), 3000);
     }
     function toggle(id) {
       const el = document.getElementById(id);
