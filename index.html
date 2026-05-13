@@ -92,13 +92,37 @@
     line-height: 1.15;
   }
 
+  .profile-photo {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 22px;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+  }
   .profile-img {
     width: 230px; height: 307px;
     object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 22px;
+    display: block;
     box-shadow: 0 2px 14px rgba(0,0,0,0.09);
+    transition: filter 0.6s ease;
   }
+  .photo-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 10px 12px;
+    color: #fdfcf8;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 10px;
+    font-style: italic;
+    line-height: 1.4;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .profile-photo.bw .profile-img { filter: grayscale(100%); }
+  .profile-photo.bw .photo-caption { opacity: 1; }
 
   .title { color: var(--text-secondary); font-size: 13px; font-weight: 400; margin-bottom: 2px; }
   .affiliation { color: var(--text-muted); font-size: 12px; margin-bottom: 20px; }
@@ -361,7 +385,10 @@
   <div class="container">
     <div class="sidebar">
       <div class="name">Ignacio Banares-Sanchez</div>
-      <img src="Profile.png" alt="Ignacio Banares-Sanchez" class="profile-img">
+      <div class="profile-photo" onclick="this.classList.toggle('bw')">
+        <img src="Profile.png" alt="Ignacio Banares-Sanchez" class="profile-img">
+        <div class="photo-caption">Paris, 2026 &nbsp;·&nbsp; Photo by Paula Salamanca</div>
+      </div>
       <div class="title">PhD Candidate in Economics</div>
       <div class="affiliation">London School of Economics</div>
       <a href="https://ibanaressanchez.github.io/Banares_Sanchez_CV.pdf" class="cv-btn" target="_blank">Download CV</a>
