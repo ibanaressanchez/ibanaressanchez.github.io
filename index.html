@@ -367,12 +367,11 @@
 
   @media (max-width: 768px) {
     .container { grid-template-columns: 1fr; padding: 36px 24px; gap: 44px; }
-    .sidebar { position: static; }
-    .profile-img { margin: 0 auto 24px; width: 200px; height: 267px; }
+    .sidebar { position: static; max-height: none; overflow: visible; }
+    .profile-photo { margin-bottom: 24px; }
+    .profile-img { width: 200px; height: 267px; }
     .theme-toggle { top: 16px; right: 16px; }
     .main-nav { display: none; }
-    .course-code { min-width: 60px; }
-    .course-level { display: none; }
   }
 </style>
 </head>
