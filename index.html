@@ -17,6 +17,7 @@
     --text-muted: #6b6b6b;
     --blue: #3a64a8;
     --blue-light: #ecf0f7;
+    --coral: #c97560;
     --border: #d8d6d0;
     --card-bg: #fdfcf8;
     --abstract-bg: #f4f2eb;
@@ -29,6 +30,7 @@
     --text-muted: #888;
     --blue: #8aa8d8;
     --blue-light: #18223a;
+    --coral: #e09984;
     --border: #2a2a2a;
     --card-bg: #161616;
     --abstract-bg: #131313;
@@ -44,6 +46,8 @@
     -webkit-font-smoothing: antialiased;
     transition: background 0.3s, color 0.3s;
   }
+
+  ::selection { background: var(--blue); color: var(--bg); }
 
   .theme-toggle {
     position: fixed; top: 24px; right: 24px;
@@ -71,13 +75,12 @@
 
   .name {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 0;
-    margin-bottom: 18px;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    margin-bottom: 22px;
     color: var(--text);
-    line-height: 1.2;
-    white-space: nowrap;
+    line-height: 1.15;
   }
 
   .profile-img {
@@ -88,7 +91,7 @@
     box-shadow: 0 2px 14px rgba(0,0,0,0.09);
   }
 
-  .title { color: var(--text-secondary); font-size: 12px; font-weight: 600; letter-spacing: 0.4px; margin-bottom: 2px; text-transform: uppercase; }
+  .title { color: var(--text-secondary); font-size: 13px; font-weight: 400; margin-bottom: 2px; }
   .affiliation { color: var(--text-muted); font-size: 12px; margin-bottom: 20px; }
 
   .cv-btn {
@@ -138,18 +141,26 @@
   .main-nav a:hover { color: var(--blue); }
   .main-nav a:hover::after { width: 100%; }
 
+  .main { counter-reset: section; }
+
   .main h2 {
     font-family: 'Inter', sans-serif;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--coral);
     margin-bottom: 18px;
     margin-top: 32px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
     scroll-margin-top: 30px;
+    counter-increment: section;
+  }
+  .main h2::before {
+    content: counter(section, decimal-leading-zero) "  /  ";
+    font-weight: 400;
+    color: var(--text-muted);
   }
   .main h2:first-of-type { margin-top: 0; }
 
