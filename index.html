@@ -21,6 +21,8 @@
     --border: #d8d6d0;
     --card-bg: #fdfcf8;
     --abstract-bg: #f4f2eb;
+    --cursor-default: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'><path d='M3 3 L3 17 L7 13 L10 19 L13 17.5 L10 11.5 L17 11 Z' fill='%23c97560' stroke='%23fdfcf8' stroke-width='1.5' stroke-linejoin='round'/></svg>") 3 3, auto;
+    --cursor-pointer: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><circle cx='6' cy='6' r='5' fill='%23c97560' stroke='%23fdfcf8' stroke-width='1'/></svg>") 6 6, pointer;
   }
 
   [data-theme="dark"] {
@@ -48,6 +50,10 @@
   }
 
   ::selection { background: var(--blue); color: var(--bg); }
+
+  body { cursor: var(--cursor-default); }
+  a, button, .theme-toggle, .theme-toggle *, .profile-photo, .profile-photo *, [onclick] { cursor: var(--cursor-pointer); }
+  .paper-links a.disabled { cursor: var(--cursor-default); }
 
   .theme-toggle {
     position: fixed; top: 24px; right: 24px;
