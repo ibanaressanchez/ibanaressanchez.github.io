@@ -78,7 +78,6 @@
 
   ::selection { background: var(--blue); color: var(--bg); }
 
-  /* ── Entry animation — single page fade ── */
   body {
     animation: pageFade 0.8s ease forwards;
   }
@@ -93,7 +92,6 @@
     100% { transform: rotate(360deg) scale(1); }
   }
 
-  /* ── Theme toggle ── */
   .theme-toggle {
     position: fixed; top: 24px; right: 24px;
     width: 40px; height: 40px;
@@ -107,7 +105,6 @@
   .theme-toggle:hover { border-color: var(--blue); }
   .theme-toggle svg { width: 17px; height: 17px; stroke: var(--text); fill: none; stroke-width: 1.5; }
 
-  /* ── Layout ── */
   .container {
     max-width: 1220px;
     margin: 0 auto;
@@ -117,7 +114,6 @@
     gap: 80px;
   }
 
-  /* ── Sidebar ── */
   .sidebar {
     position: sticky;
     top: 48px;
@@ -215,47 +211,6 @@
   .social a:hover { color: var(--blue); }
   .social svg { width: 18px; height: 18px; fill: currentColor; }
 
-  .sidebar-nav {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-  }
-
-  .div-circle {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--coral);
-    flex-shrink: 0;
-    transform: scale(0);
-  }
-  .div-seg {
-    height: 1px;
-    background: var(--text-muted);
-    opacity: 0;
-    border-radius: 1px;
-  }
-  .div-seg.s { width: 12px; }
-  .div-seg.m { width: 22px; }
-  .div-seg.l { width: 38px; }
-  .div-seg.left  { transform-origin: right center; transform: scaleX(0); }
-  .div-seg.right { transform-origin: left center;  transform: scaleX(0); }
-
-  .sidebar-nav.play .div-circle {
-    animation: divCirc 0.42s cubic-bezier(0.34,1.56,0.64,1) 0.55s forwards;
-  }
-  .sidebar-nav.play .div-seg.right.s { animation: divSeg 0.32s cubic-bezier(0.22,0.61,0.36,1) 0.88s forwards; }
-  .sidebar-nav.play .div-seg.right.m { animation: divSeg 0.32s cubic-bezier(0.22,0.61,0.36,1) 1.06s forwards; }
-  .sidebar-nav.play .div-seg.right.l { animation: divSeg 0.32s cubic-bezier(0.22,0.61,0.36,1) 1.24s forwards; }
-  .sidebar-nav.play .div-seg.left.s  { animation: divSeg 0.32s cubic-bezier(0.22,0.61,0.36,1) 0.94s forwards; }
-  .sidebar-nav.play .div-seg.left.m  { animation: divSeg 0.32s cubic-bezier(0.22,0.61,0.36,1) 1.12s forwards; }
-  .sidebar-nav.play .div-seg.left.l  { animation: divSeg 0.32s cubic-bezier(0.22,0.61,0.36,1) 1.30s forwards; }
-
-  @keyframes divCirc { to { transform: scale(1); } }
-  @keyframes divSeg  { to { opacity: 0.5; transform: scaleX(1); } }
-
-  /* ── Main nav ── */
   .main-nav { display: flex; gap: 28px; margin-bottom: 36px; flex-wrap: wrap; }
   .main-nav a {
     color: var(--text); text-decoration: none;
@@ -274,7 +229,6 @@
   .main-nav a.active { color: var(--text); }
   .main-nav a.active .num { color: var(--coral); }
 
-  /* ── Section headings ── */
   .main { counter-reset: section; }
 
   .main h2 {
@@ -320,6 +274,62 @@
     padding-bottom: 4px;
   }
   .paper:last-child { margin-bottom: 0; }
+
+  /* ── Paper card (figure + content, boxed) ── */
+  .paper-card {
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: 22px;
+    margin-bottom: 20px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--card-bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease,
+                background 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+  }
+  .paper-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .paper-card:last-child { margin-bottom: 0; }
+
+  .paper-figure {
+    width: 128px;
+    height: 128px;
+    border-radius: 3px;
+    background: var(--blue-light);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
+                background 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+  }
+  .paper-figure svg {
+    width: 76%;
+    height: 76%;
+    stroke: var(--blue);
+    transition: stroke 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+  }
+  .paper-figure svg .accent { stroke: var(--coral); }
+  .paper-figure svg .fill-accent { fill: var(--coral); stroke: none; }
+  .paper-figure svg .fill-blue { fill: var(--blue); stroke: none; }
+
+  .paper-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .paper-body { min-width: 0; }
 
   .paper-title {
     font-family: 'Source Serif 4', Georgia, serif;
@@ -402,14 +412,13 @@
   .paper-links a.disabled { color: var(--text-muted); cursor: default; font-weight: 400; }
   .paper-links a.disabled:hover { opacity: 1; }
 
-  /* Classic expandable — smooth slide */
   .expandable {
     max-height: 0;
     overflow: hidden;
     margin-top: 0;
-    padding: 0 18px;
-    font-size: 13px;
-    line-height: 1.85;
+    padding: 0 16px;
+    font-size: 12px;
+    line-height: 1.65;
     color: var(--text-secondary);
     border-left: 2px solid var(--blue);
     opacity: 0;
@@ -421,8 +430,8 @@
   .expandable.show {
     max-height: 600px;
     opacity: 1;
-    margin-top: 12px;
-    padding: 4px 18px;
+    margin-top: 10px;
+    padding: 3px 16px;
   }
   .expandable strong { color: var(--text); font-weight: 700; }
 
@@ -476,6 +485,8 @@
     .theme-toggle { top: 16px; right: 16px; }
     .main-nav { display: none; }
     .affiliation-wrap { display: block; }
+    .paper-card { grid-template-columns: 1fr; }
+    .paper-figure { width: 92px; height: 92px; }
   }
 </style>
 </head>
@@ -508,15 +519,6 @@
         <a href="https://scholar.google.com/citations?user=Wyj_C4oAAAAJ&hl=en" title="Google Scholar" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg></a>
         <a href="https://bsky.app/profile/ibanares-sanchez.bsky.social" title="Bluesky" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg></a>
       </div>
-      <div class="sidebar-nav" id="sidebar-nav">
-        <div class="div-seg left l"></div>
-        <div class="div-seg left m"></div>
-        <div class="div-seg left s"></div>
-        <div class="div-circle"></div>
-        <div class="div-seg right s"></div>
-        <div class="div-seg right m"></div>
-        <div class="div-seg right l"></div>
-      </div>
     </div>
 
     <div class="main">
@@ -535,46 +537,61 @@
       <!-- Working Papers -->
       <h2 id="working-papers">Working Papers</h2>
 
-        <div class="paper">
-          <div class="paper-title">Trading Trash on Tricycles <span class="jmp-tag">(Job Market Paper)</span></div>
-          <div class="coauthors">with <a href="https://yoshikiwiskamp.com" target="_blank" rel="noopener noreferrer">Yoshiki Wiskamp</a></div>
-          <div class="award">Urban Economics Association Prize <a href="https://urbaneconomics.org/meetings/awards.html" target="_blank">(Best Student Paper at the 2026 European Meeting)</a></div>
-          <div class="paper-links">
-            <a href="#" onclick="toggle('abs1'); return false;">▸ Abstract</a>
-            <a href="https://ibanaressanchez.github.io/jmp.pdf" target="_blank">[Paper]</a>
-            <a href="#" onclick="toggle('pres1'); return false;">▸ Presentations</a>
-            <a href="#" onclick="toggle('fund1'); return false;">▸ Funders &amp; Partners</a>
+        <div class="paper-card">
+          <div class="paper-figure" style="background: #ffffff;">
+            <img src="figure_ttt.png" alt="Map of tricycle collection routes flowing toward dumping sites in Accra, Ghana" style="object-fit: contain;">
           </div>
-          <div class="expandable" id="abs1">Urbanisation generates powerful agglomeration benefits but also severe congestion externalities that require regulation and public goods provision. In developing megacities, governments lack the fiscal and enforcement capacity to implement textbook solutions. In their absence, unregulated private provision emerges across sectors such as waste, sanitation, water, and transport, leaving externalities largely unaddressed. What can economics offer cities that cannot implement textbook policies? We study whether limited, feasible regulation can leverage informal markets to deliver public services at scale, focusing on trash collection in Accra, Ghana. Using novel data, we document an imperfect but functioning market: households pay informal tricycle collectors for door-to-door collection, yet prices remain too high for universal access, and final disposal occurs largely at illegal dumpsites. We identify a single feasible policy lever—subsidies for formal, environmentally controlled disposal—and evaluate it using a new structural model of urban waste collection and disposal. To estimate the model, we combine survey experiments to elicit household demand, a custom app to record transactions and tricycle routes, and a field experiment randomising dumping fees. Counterfactual results show that a modest subsidy achieves roughly 80% of the efficient outcome, substantially reducing environmental damages while generating larger welfare gains at lower cost than planned infrastructure expansion. These findings demonstrate that even in very low-capacity environments, limited price-based regulation can align informal private initiative with social objectives.</div>
-          <div class="expandable" id="pres1"><strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop, CURE, Guest Lecture at Kyiv School of Economics; (2026) LMU Munich, Paris School of Economics, University of Warwick, CEMFI, Stanford GSB, Stanford Doerr School of Sustainability, MIT, UBC, University of Toronto, Stockholm University, Universitat Pompeu Fabra, Berkeley ARE</div>
-          <div class="expandable" id="fund1"><strong>Funders &amp; Partners:</strong> International Growth Centre (IGC), STICERD, Innovations for Poverty Action (IPA), DataPlas Ghana</div>
+          <div class="paper-body">
+            <div class="paper-title">Trading Trash on Tricycles <span class="jmp-tag">(Job Market Paper)</span></div>
+            <div class="coauthors">with <a href="https://yoshikiwiskamp.com" target="_blank" rel="noopener noreferrer">Yoshiki Wiskamp</a></div>
+            <div class="award">Urban Economics Association Prize <a href="https://urbaneconomics.org/meetings/awards.html" target="_blank">(Best Student Paper at the 2026 European Meeting)</a></div>
+            <div class="paper-links">
+              <a href="#" onclick="toggle('abs1'); return false;">▸ Abstract</a>
+              <a href="https://ibanaressanchez.github.io/jmp.pdf" target="_blank">[Paper]</a>
+              <a href="#" onclick="toggle('pres1'); return false;">▸ Presentations</a>
+              <a href="#" onclick="toggle('fund1'); return false;">▸ Funders &amp; Partners</a>
+            </div>
+            <div class="expandable" id="abs1">Developing megacities face severe congestion externalities but lack the fiscal and enforcement capacity for textbook regulation. In its absence, unregulated private provision emerges across services like waste, sanitation, water, and transport. We ask whether limited, feasible regulation can leverage these informal markets to deliver public services at scale, focusing on trash collection in Accra, Ghana. Using novel data, we document an imperfect but functioning market: households pay informal tricycle collectors for door-to-door service, yet prices remain too high for universal access, and final disposal occurs largely at illegal dumpsites. We identify a single feasible lever — subsidies for formal, environmentally controlled disposal — and evaluate it using a new structural model of urban waste collection and disposal. To estimate the model, we combine survey experiments eliciting household demand, a custom app recording transactions and tricycle routes, and a field experiment randomising dumping fees. A modest subsidy captures roughly 80% of the first-best welfare gain, substantially reducing environmental damages and generating larger gains at lower cost than planned infrastructure expansion. Limited price-based regulation can align informal private initiative with social objectives even where state capacity is weak.</div>
+            <div class="expandable" id="pres1"><strong>Presentations:</strong> (2025) LSE Environment Camp, LSE IO-DEV Workshop, CURE, Guest Lecture at Kyiv School of Economics; (2026) LMU Munich, Paris School of Economics, University of Warwick, CEMFI, Stanford GSB, Stanford Doerr School of Sustainability, MIT, UBC, University of Toronto, Stockholm University, Universitat Pompeu Fabra, Berkeley ARE</div>
+            <div class="expandable" id="fund1"><strong>Funders &amp; Partners:</strong> International Growth Centre (IGC), STICERD, Innovations for Poverty Action (IPA), DataPlas Ghana</div>
+          </div>
         </div>
 
-        <div class="paper">
-          <div class="paper-title">Ray of Hope? China and the Rise of Solar Energy</div>
-          <div class="coauthors">with <a href="https://www.robinburgess.com/" target="_blank" rel="noopener noreferrer">Robin Burgess</a>, David Laszlo, <a href="https://polsimpson.github.io/" target="_blank" rel="noopener noreferrer">Pol Simpson</a>, <a href="https://www.johnvanreenen.com/" target="_blank" rel="noopener noreferrer">John Van Reenen</a>, and <a href="https://www.yifanwang.net" target="_blank" rel="noopener noreferrer">Yifan Wang</a></div>
-          <div class="status-line">Revise and Resubmit, <strong>The Quarterly Journal of Economics</strong></div>
-          <div class="paper-links">
-            <a href="#" onclick="toggle('abs2'); return false;">▸ Abstract</a>
-            <a href="https://poid.lse.ac.uk/textonly/publications/downloads/poidwp143.pdf" target="_blank">[Paper]</a>
-            <a href="https://www.nber.org/papers/w34893" target="_blank">[NBER WP]</a>
-            <a href="https://voxdev.org/topic/energy-environment/ray-hope-rise-solar-energy-china" target="_blank">[VoxDev]</a>
-            <a href="https://cepr.org/voxeu/columns/ray-hope-rise-solar-energy-china" target="_blank">[VoxEU]</a>
-            <a href="https://www.voxchina.org/show-3-450.html" target="_blank">[VoxChina]</a>
-            <a href="#" onclick="toggle('pres2'); return false;">▸ Presentations</a>
+        <div class="paper-card">
+          <div class="paper-figure" style="background: #ffffff;">
+            <img src="figure_solar.png" alt="Chart showing solar PV module cost falling from $100/W in 1975 to $0.25/W by 2024" style="object-fit: contain;">
           </div>
-          <div class="expandable" id="abs2">Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.</div>
-          <div class="expandable" id="pres2"><strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (2026) ASSA Annual Meeting in Philadelphia</div>
+          <div class="paper-body">
+            <div class="paper-title">Ray of Hope? China and the Rise of Solar Energy</div>
+            <div class="coauthors">with <a href="https://www.robinburgess.com/" target="_blank" rel="noopener noreferrer">Robin Burgess</a>, David Laszlo, <a href="https://polsimpson.github.io/" target="_blank" rel="noopener noreferrer">Pol Simpson</a>, <a href="https://www.johnvanreenen.com/" target="_blank" rel="noopener noreferrer">John Van Reenen</a>, and <a href="https://www.yifanwang.net" target="_blank" rel="noopener noreferrer">Yifan Wang</a></div>
+            <div class="status-line">Revise and Resubmit, <strong>The Quarterly Journal of Economics</strong></div>
+            <div class="paper-links">
+              <a href="#" onclick="toggle('abs2'); return false;">▸ Abstract</a>
+              <a href="https://poid.lse.ac.uk/textonly/publications/downloads/poidwp143.pdf" target="_blank">[Paper]</a>
+              <a href="https://www.nber.org/papers/w34893" target="_blank">[NBER WP]</a>
+              <a href="https://voxdev.org/topic/energy-environment/ray-hope-rise-solar-energy-china" target="_blank">[VoxDev]</a>
+              <a href="https://cepr.org/voxeu/columns/ray-hope-rise-solar-energy-china" target="_blank">[VoxEU]</a>
+              <a href="https://www.voxchina.org/show-3-450.html" target="_blank">[VoxChina]</a>
+              <a href="#" onclick="toggle('pres2'); return false;">▸ Presentations</a>
+            </div>
+            <div class="expandable" id="abs2">Do industrial policies that promote clean energy offer a "ray of hope" increasing a country's economic growth and welfare whilst simultaneously reducing carbon emissions? We study the impact of Chinese solar subsidies whose implementation by cities coincided with a dramatic fall in global solar prices. We construct new panel data on city-level solar policies, patenting and output. Using synthetic-difference-in-differences between 2004-2020, we find that production and innovation subsidies were more effective than demand-side (installation) subsidies in generating large and persistent increases in local innovation, firm numbers, output and exports. However, demand policies are most effective at reducing pollution. We build and estimate a quantitative model with endogenous innovation that takes into account business stealing and knowledge spillovers. Through the lens of this model we show that: (i) the local effects remain substantial at the aggregate level; (ii) Industrial policy explain almost two-fifths of the decline in the global cost of solar panels and over a third of the increase in Chinese innovation; (iii) Innovation subsidies are much more cost-effective than demand and production subsidies; and (iv) solar industrial policies increased Chinese welfare by 1% to 2.3%, almost as much as existing estimates of WTO Accession.</div>
+            <div class="expandable" id="pres2"><strong>Presentations:</strong> (2023) NBER Summer Institute EEE, Stanford SITE; (2026) ASSA Annual Meeting in Philadelphia</div>
+          </div>
         </div>
 
-        <div class="paper">
-          <div class="paper-title">Channeling Density: Sewerage Investments in 19th-Century Paris</div>
-          <div class="coauthors">with <a href="https://yoshikiwiskamp.com" target="_blank" rel="noopener noreferrer">Yoshiki Wiskamp</a></div>
-          <div class="paper-links">
-            <a href="#" onclick="toggle('abs3'); return false;">▸ Abstract</a>
-            <a href="#" class="disabled">[slides available upon request]</a>
+        <div class="paper-card">
+          <div class="paper-figure" style="background: #ffffff;">
+            <img src="figure_paris.png" alt="Map of voter density per hexagon across Paris in 1871" style="object-fit: contain;">
           </div>
-          <div class="expandable" id="abs3">The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. Sanitation investments might therefore be essential to allow for people to tolerate density and for positive agglomeration externalities to emerge; thereby turning population density from a downside into an upside. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century. We first present event studies examining changes in firm density, residential density, land values, and disease incidences. We then leverage an urban model to estimate the impact of sewers on the strength of agglomeration and city structure. Through counterfactual analyses we examine the impact, cost-benefit, and alternative placements of sewers. Finally, we asses the extent to which sewers displaced pollution to the Parisian suburbs, affecting their long-term development.</div>
+          <div class="paper-body">
+            <div class="paper-title">Channeling Density: Sewerage Investments in 19th-Century Paris</div>
+            <div class="coauthors">with <a href="https://yoshikiwiskamp.com" target="_blank" rel="noopener noreferrer">Yoshiki Wiskamp</a></div>
+            <div class="paper-links">
+              <a href="#" onclick="toggle('abs3'); return false;">▸ Abstract</a>
+              <a href="#" class="disabled">[slides available upon request]</a>
+            </div>
+            <div class="expandable" id="abs3">The internal structure of cities is shaped by localised production and residential externalities. Lack of sanitation gives rise to negative externalities in the form of pollution and disease transmission. Sanitation investments might therefore be essential to allow for people to tolerate density and for positive agglomeration externalities to emerge; thereby turning population density from a downside into an upside. To investigate this hypothesis, we assemble an address-level data set spanning the entire construction period of the Parisian sewage network during the 19th century. We first present event studies examining changes in firm density, residential density, land values, and disease incidences. We then leverage an urban model to estimate the impact of sewers on the strength of agglomeration and city structure. Through counterfactual analyses we examine the impact, cost-benefit, and alternative placements of sewers. Finally, we asses the extent to which sewers displaced pollution to the Parisian suburbs, affecting their long-term development.</div>
+          </div>
         </div>
 
       <!-- Work in Progress -->
@@ -660,12 +677,6 @@
         link.textContent = t.startsWith('▸') ? t.replace('▸','▾') : t.replace('▾','▸');
       }
     }
-
-    /* ── Divider animation ── */
-    setTimeout(() => {
-      const nav = document.getElementById('sidebar-nav');
-      if (nav) nav.classList.add('play');
-    }, 100);
 
     /* ── Active nav on scroll ── */
     const navLinks = document.querySelectorAll('.main-nav a');
